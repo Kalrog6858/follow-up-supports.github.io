@@ -13,41 +13,41 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #fafafa;
-      color: #222;
+      color: #fff;
+      background: url('https://images.unsplash.com/photo-1583201081801-70b100ba9071?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
       line-height: 1.6;
     }
 
     header {
-      background-color: #ffffff;
+      background-color: rgba(0, 0, 0, 0.5);
       padding: 60px 20px 30px;
       text-align: center;
-      border-bottom: 1px solid #ddd;
+      backdrop-filter: blur(6px);
     }
 
     header h1 {
       margin: 0;
       font-size: 2.8rem;
       font-weight: 600;
-      color: #1a1a1a;
     }
 
     header p {
       font-size: 1.1rem;
-      color: #555;
+      color: #ddd;
     }
 
     nav {
       display: flex;
       justify-content: center;
       gap: 30px;
-      background-color: #ffffff;
+      background-color: rgba(0, 0, 0, 0.6);
       padding: 15px 0;
-      border-bottom: 1px solid #eee;
+      backdrop-filter: blur(4px);
     }
 
     nav a {
-      color: #0077cc;
+      color: #fff;
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
@@ -60,21 +60,26 @@
     }
 
     .card {
-      background-color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.1);
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
       margin-bottom: 30px;
+      backdrop-filter: blur(12px);
     }
 
     .card h2 {
       margin-top: 0;
-      color: #0077cc;
+      color: #fff;
+    }
+
+    .card ul {
+      color: #eee;
     }
 
     .btn {
       display: inline-block;
-      background-color: #0077cc;
+      background-color: #00bcd4;
       color: white;
       padding: 12px 20px;
       border-radius: 6px;
@@ -83,17 +88,14 @@
       margin-top: 15px;
     }
 
-    ul {
-      padding-left: 18px;
-    }
-
     footer {
-      background-color: #ffffff;
-      color: #777;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #ccc;
       text-align: center;
       padding: 20px;
       font-size: 0.9rem;
-      border-top: 1px solid #eee;
+      border-top: 1px solid #333;
+      backdrop-filter: blur(6px);
       margin-top: 50px;
     }
 
@@ -113,36 +115,37 @@
 
   <header>
     <h1>Follow-Up Team CHT</h1>
-    <p>Empowering youth with the tools they need to succeed after care</p>
+    <p>Empowering youth on their journey after care and shelter</p>
   </header>
 
   <nav>
     <a href="#resources">Resources</a>
-    <a href="https://your-map-link.com" target="_blank">Community Map</a>
+    <a href="https://www.google.com/maps/d/u/0/edit?mid=1PSAwJ99JycTMqmWT5Z0VraMA7icYHJU&ll=50.52375772338418%2C-91.17590614999999&z=5" target="_blank">Community Map</a>
   </nav>
 
   <div class="container">
     <div class="card">
       <h2>Welcome!</h2>
       <p>We’re here to support young people as they move forward from shelters, care systems, or temporary housing. Explore trusted resources and find support in your area.</p>
-      <a class="btn" href="https://your-map-link.com" target="_blank">View Interactive Community Map</a>
+      <a class="btn" href="https://your-map-link.com" target="_blank">View Community Map</a>
     </div>
 
     <div class="card" id="resources">
       <h2>Key Resources</h2>
       <ul>
-        <li><strong>🏠 Housing:</strong> Find safe, affordable, and transitional housing options.</li>
-        <li><strong>🍽️ Food Access:</strong> Community meals, food banks, and free groceries.</li>
-        <li><strong>🧠 Mental Health:</strong> Support lines, free therapy, and walk-in counselling.</li>
-        <li><strong>💼 Jobs & Training:</strong> Resume help, job boards, and youth employment centers.</li>
-        <li><strong>🩺 Health & Wellness:</strong> Clinics, sexual health, and substance use support.</li>
+        <li><strong>🏠 Housing:</strong> Safe, affordable & transitional housing options.</li>
+        <li><strong>🍽️ Food Access:</strong> Food banks, community kitchens & meals.</li>
+        <li><strong>🧠 Mental Health:</strong> Free therapy, support lines & walk-in help.</li>
+        <li><strong>💼 Jobs & Training:</strong> Resume help & youth employment support.</li>
+        <li><strong>🩺 Health & Wellness:</strong> Clinics, OHIP support & harm reduction.</li>
       </ul>
     </div>
   </div>
 
   <footer>
-    &copy; 2025 Follow-Up Team | Created by Kaleab Alemseged
+    &copy; 2025 Follow-Up Supports | Designed with care by Kaleab Alemseged
   </footer>
 
 </body>
 </html>
+
