@@ -6,61 +6,89 @@
   <title>Contact Us | Follow-Up Supports</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f2f4f7;
-      color: #222;
+    :root{
+      --brand:#0d47a1;
+      --bg:#f2f4f7;
+      --card:#ffffff;
+      --text:#222;
+      --muted:#667085;
+      --ring:rgba(13,71,161,.10);
+      --border:#eef0f4;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.6;
+    }
+    header{
+      background:linear-gradient(180deg,#0f59c7 0%,var(--brand) 100%); color:#fff; text-align:center; padding:56px 20px;
+    }
+    header h1{margin:0 0 6px; font-size:2rem; font-weight:700}
+    header p{margin:0; opacity:.95}
+
+    nav{
+      background:#fff; border-bottom:1px solid #e6e8ec; text-align:center; padding:14px; position:sticky; top:0; z-index:20;
+    }
+    nav a{
+      color:var(--brand); text-decoration:none; margin:0 12px; font-weight:600; padding:6px 10px; border-radius:8px;
+    }
+    nav a:hover{background:#f0f6ff}
+
+    .container{max-width:1100px; margin:32px auto 64px; padding:0 20px}
+
+    .cards{display:grid; gap:24px; grid-template-columns:1fr}
+    @media (min-width:900px){ .cards{grid-template-columns:1.1fr .9fr} }
+
+    .panel{
+      background:var(--card); border:1px solid var(--border);
+      border-radius:14px; box-shadow:0 10px 30px var(--ring); padding:28px;
     }
 
-    header {
-      background-color: #0d47a1;
-      color: white;
-      padding: 50px 20px;
-      text-align: center;
+    .badge{
+      display:inline-block; background:#eef5ff; color:var(--brand);
+      padding:6px 10px; border-radius:999px; font-weight:600; font-size:.85rem; margin-bottom:10px;
     }
 
-    nav {
-      background-color: white;
-      padding: 15px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-    }
+    .contact-list{margin-top:8px}
+    .row{display:flex; gap:12px; padding:12px 0; border-bottom:1px dashed #eceff3}
+    .row:last-child{border-bottom:none}
+    .label{min-width:80px; font-weight:600; color:var(--brand)}
+    .link{color:var(--brand); text-decoration:none}
+    .link:hover{text-decoration:underline}
 
-    nav a {
-      color: #0d47a1;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: 600;
+    figure{margin:0; display:flex; flex-direction:column; gap:12px; align-items:center}
+    .bizcard{
+      width:100%; max-width:520px; border-radius:12px; border:1px solid var(--border);
+      box-shadow:0 12px 32px var(--ring); aspect-ratio:16/9; object-fit:cover;
     }
+    .actions{display:flex; gap:10px; flex-wrap:wrap; justify-content:center}
+    .btn{
+      display:inline-block; padding:10px 14px; border-radius:10px; border:1px solid #e6e8ec;
+      background:#fff; color:var(--brand); font-weight:600; text-decoration:none;
+    }
+    .btn.primary{background:var(--brand); color:#fff; border-color:var(--brand)}
 
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
+    /* Gallery section */
+    .gallery{
+      margin-top:28px;
+      display:grid; gap:18px;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     }
-
-    .contact-box {
-      background-color: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    .tile{
+      background:#fff; border:1px solid var(--border); border-radius:12px; overflow:hidden;
+      box-shadow:0 8px 22px var(--ring);
     }
-
-    footer {
-      background-color: #0d47a1;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      margin-top: 50px;
-    }
+    .tile img{width:100%; height:220px; object-fit:cover; display:block}
+    .tile .meta{padding:10px 12px; text-align:center}
+    .meta h4{margin:0 0 2px; font-size:1rem; color:var(--brand);}
+    .meta p{margin:0; color:#6b7280; font-size:.9rem}
+    footer{background:var(--brand); color:#fff; text-align:center; padding:20px; font-size:.9rem; margin-top:50px}
   </style>
 </head>
 <body>
 
   <header>
     <h1>Contact Us</h1>
+    <p>Follow-Up Supports • Covenant House Toronto</p>
   </header>
 
   <nav>
@@ -70,13 +98,71 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <div class="container">
-    <div class="contact-box">
-      <p>If you're a youth needing help or a community partner looking to collaborate, reach out to us directly:</p>
+  <div class="container cards">
+    <!-- Left: contact info + photo gallery -->
+    <section class="panel">
+      <span class="badge">Get in touch</span>
+      <h2 style="margin:8px 0 6px;">We’re here to support you</h2>
+      <p style="margin-top:0; color:var(--muted);">Email us to arrange a meeting or warm referral.</p>
 
-      <p><strong>Email:</strong> followupsupports@covenanthouse.ca</p>
-      <p><strong>Visit us at:</strong> Covenant House Toronto, 20 Gerrard St. E, Toronto</p>
-    </div>
+      <div class="contact-list">
+        <div class="row">
+          <div class="label">Email</div>
+          <div><a class="link" href="mailto:followupsupports@covenanthouse.ca">followupsupports@covenanthouse.ca</a></div>
+        </div>
+        <div class="row">
+          <div class="label">Visit</div>
+          <div>Covenant House Toronto<br>20 Gerrard St. E, Toronto, ON</div>
+        </div>
+        <div class="row">
+          <div class="label">Hours</div>
+          <div>Mon–Fri, 9:00 AM – 5:00 PM (by appointment)</div>
+        </div>
+      </div>
+
+      <!-- Photo gallery -->
+      <div class="gallery">
+        <div class="tile">
+          <img src="images/web1.jpg" alt="Follow-Up Support Worker 1">
+          <div class="meta"><h4>Follow-Up Support Worker</h4><p>Team Member</p></div>
+        </div>
+
+        <div class="tile">
+          <img src="images/web2.jpg" alt="Follow-Up Support Worker 2">
+          <div class="meta"><h4>Follow-Up Support Worker</h4><p>Team Member</p></div>
+        </div>
+
+        <div class="tile">
+          <img src="images/web3.jpg" alt="Supervisor Photo">
+          <div class="meta"><h4>Supervisor</h4><p>Program Lead</p></div>
+        </div>
+
+        <div class="tile">
+          <img src="images/web4.jpg" alt="Follow-Up Support Worker 3">
+          <div class="meta"><h4>Follow-Up Support Worker</h4><p>Team Member</p></div>
+        </div>
+
+        <div class="tile">
+          <img src="images/web5.jpg" alt="Follow-Up Support Worker 4">
+          <div class="meta"><h4>Follow-Up Support Worker</h4><p>Team Member</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right: Business card -->
+    <aside class="panel">
+      <span class="badge">Contact Card</span>
+      <figure>
+        <a href="images/web5.jpg" target="_blank" rel="noopener">
+          <img src="images/web5.jpg" alt="Follow-Up Supports Business Card" class="bizcard" loading="lazy">
+        </a>
+        <div class="actions">
+          <a class="btn primary" href="images/web5.jpg" download>Download Card</a>
+          <a class="btn" href="mailto:followupsupports@covenanthouse.ca">Email Us</a>
+        </div>
+        <p style="margin:0;color:var(--muted);font-size:.9rem;">Click the card to view or download.</p>
+      </figure>
+    </aside>
   </div>
 
   <footer>
