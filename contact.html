@@ -4,155 +4,211 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us | Follow-Up Supports</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --brand:#0d47a1;
-      --bg:#f2f4f7;
-      --card:#ffffff;
-      --text:#222;
-      --muted:#667085;
-      --ring:rgba(13,71,161,.10);
-      --border:#eef0f4;
+      --brand:#0d47a1; --brand-2:#0f59c7;
+      --bg:#f5f7fb; --text:#1f2937; --muted:#667085;
+      --card:#ffffff; --border:#e9edf3; --ring:rgba(13,71,161,.12);
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-    header{background:linear-gradient(180deg,#0f59c7 0%,var(--brand) 100%);color:#fff;text-align:center;padding:56px 20px}
-    header h1{margin:0 0 6px;font-size:2rem;font-weight:700}
-    header p{margin:0;opacity:.95}
-
-    nav{background:#fff;border-bottom:1px solid #e6e8ec;text-align:center;padding:14px;position:sticky;top:0;z-index:20}
-    nav a{color:var(--brand);text-decoration:none;margin:0 12px;font-weight:600;padding:6px 10px;border-radius:8px}
-    nav a:hover{background:#f0f6ff}
-
-    .container{max-width:1100px;margin:32px auto 64px;padding:0 20px}
-
-    .panel{
-      background:var(--card);border:1px solid var(--border);
-      border-radius:14px;box-shadow:0 10px 30px var(--ring);padding:28px
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.6;
+      animation:fadeInBody .7s ease;
     }
-    .badge{display:inline-block;background:#eef5ff;color:var(--brand);padding:6px 10px;border-radius:999px;font-weight:600;font-size:.85rem;margin-bottom:10px}
+    @keyframes fadeInBody{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-    .contact-list{margin-top:8px}
+    /* Hero */
+    header.hero{
+      color:#fff; text-align:center; padding:56px 20px 40px;
+      background:radial-gradient(1100px 520px at 10% 0%, #1a6de0 0%, var(--brand) 40%, #0c3b86 100%);
+      box-shadow:0 10px 28px var(--ring); animation:fadeInHero .8s ease;
+    }
+    @keyframes fadeInHero{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+    .hero h1{margin:0 0 6px; font-weight:800; font-size:clamp(1.8rem,3vw,2.4rem)}
+    .hero p{margin:0; opacity:.95}
+
+    /* Primary nav */
+    nav.primary{
+      position:sticky; top:0; z-index:20;
+      display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+      background:#fff; border-bottom:1px solid var(--border);
+      padding:10px; box-shadow:0 10px 28px var(--ring); animation:fadeInNav .9s ease;
+    }
+    @keyframes fadeInNav{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+    nav.primary a{
+      text-decoration:none; color:var(--brand); font-weight:600;
+      padding:8px 12px; border-radius:8px; white-space:nowrap; transition:.25s;
+    }
+    nav.primary a:hover{background:#eef5ff; transform:scale(1.04)}
+
+    /* Container & cards */
+    .container{max-width:1100px; margin:28px auto 64px; padding:0 20px}
+    .stack{display:grid; gap:18px}
+
+    .panel, .card{
+      background:#fff; border:1px solid var(--border); border-radius:16px;
+      box-shadow:0 14px 36px var(--ring); padding:22px;
+      animation:fadeInCard .6s ease forwards; opacity:0;
+    }
+    @keyframes fadeInCard{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    h2{margin:0 0 8px; font-size:1.28rem; color:#0d47a1}
+    .muted{color:var(--muted)}
+    .badge{display:inline-block;background:#eef5ff;color:var(--brand);padding:6px 10px;border-radius:999px;font-weight:700;font-size:.85rem;margin-bottom:10px}
+
+    /* Contact rows */
+    .contact-list{margin-top:6px}
     .row{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed #eceff3}
     .row:last-child{border-bottom:none}
-    .label{min-width:80px;font-weight:600;color:var(--brand)}
+    .label{min-width:80px;font-weight:700;color:var(--brand)}
     .link{color:var(--brand);text-decoration:none}
     .link:hover{text-decoration:underline}
 
-    /* Full-width gallery section */
+    /* Quick action buttons */
+    .actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
+    .btn{
+      display:inline-block; background:var(--brand); color:#fff; text-decoration:none;
+      font-weight:700; padding:10px 14px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 8px 22px rgba(13,71,161,.28);
+      transition:.25s;
+    }
+    .btn:hover{filter:brightness(1.08); transform:scale(1.03)}
+    .btn.alt{background:#0f59c7}
+
+    /* Team gallery */
     .gallery{
-      margin-top:28px;
-      display:grid;gap:18px;
+      margin-top:10px; display:grid; gap:18px;
       grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
     }
     .tile{
-      background:#fff;border:1px solid var(--border);border-radius:12px;
-      overflow:hidden;box-shadow:0 8px 22px var(--ring);
-      display:flex;flex-direction:column
+      background:#fff; border:1px solid var(--border); border-radius:14px;
+      overflow:hidden; box-shadow:0 10px 28px var(--ring); transition:.25s; display:flex; flex-direction:column;
     }
+    .tile:hover{transform:translateY(-5px); box-shadow:0 16px 36px rgba(13,71,161,.22)}
 
-    /* Show entire image (no crop) */
+    /* Show full image (no crop) */
     .frame{
-      background:#fff;           /* clean background around images */
-      padding:10px;              /* small white margin */
-      display:flex;align-items:center;justify-content:center;
-      min-height:260px;          /* bigger view; increase if you want even larger */
+      background:#fff; padding:10px; display:flex; align-items:center; justify-content:center;
+      min-height:260px;
     }
     .frame img{
-      max-width:100%;
-      max-height:340px;          /* prevents super tall images from overflowing */
-      height:auto;width:auto;    /* keep original aspect ratio */
-      object-fit:contain;        /* show the whole picture */
-      display:block;border-radius:8px
+      max-width:100%; max-height:340px; height:auto; width:auto; object-fit:contain; display:block; border-radius:8px;
     }
+    .meta{padding:12px; text-align:center}
+    .meta h4{margin:0 0 2px; font-size:1rem; color:var(--brand)}
+    .meta p{margin:0; color:#6b7280; font-size:.9rem}
 
-    .meta{padding:12px;text-align:center}
-    .meta h4{margin:0 0 2px;font-size:1rem;color:var(--brand)}
-    .meta p{margin:0;color:#6b7280;font-size:.9rem}
+    /* Floating back-to-top button */
+    .float-top{
+      position: fixed; right:16px; bottom:18px; width:48px; height:48px;
+      border-radius:999px; background:var(--brand); color:#fff; text-decoration:none;
+      font-weight:800; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 10px 26px rgba(13,71,161,.35); border:1px solid rgba(255,255,255,.25);
+      transition: transform .2s ease, filter .2s ease; z-index:50;
+    }
+    .float-top:hover{ transform: translateY(-3px) scale(1.03); filter: brightness(1.05); }
+    @media (max-width:520px){ .float-top{ right:12px; bottom:12px; width:44px; height:44px; } }
 
-    footer{background:var(--brand);color:#fff;text-align:center;padding:20px;font-size:.9rem;margin-top:50px}
+    footer{text-align:center; color:#98a2b3; font-size:.9rem; margin:36px 0 44px}
   </style>
 </head>
 <body>
 
-  <header>
+  <!-- HERO -->
+  <header class="hero" id="top">
     <h1>Contact Us</h1>
     <p>Follow-Up Supports • Covenant House Toronto</p>
   </header>
 
-  <nav>
+  <!-- NAV -->
+  <nav class="primary" aria-label="Primary">
     <a href="index.html">Home</a>
+    <a href="resources.html">General Resources</a>
     <a href="transition-resources.html">Transition Help</a>
     <a href="about.html">About Us</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <div class="container">
-    <!-- Contact info -->
-    <section class="panel">
-      <span class="badge">Get in touch</span>
-      <h2 style="margin:8px 0 6px;">We’re here to support you</h2>
-      <p style="margin-top:0;color:var(--muted)">Email us to arrange a meeting or warm referral.</p>
+  <main class="container">
+    <section class="stack">
 
-      <div class="contact-list">
-        <div class="row">
-          <div class="label">Email</div>
-          <div><a class="link" href="mailto:followupsupports@covenanthouse.ca">followupsupports@covenanthouse.ca</a></div>
-        </div>
-        <div class="row">
-          <div class="label">Visit</div>
-          <div>Covenant House Toronto<br>20 Gerrard St. E, Toronto, ON</div>
-        </div>
-        <div class="row">
-          <div class="label">Hours</div>
-          <div>Mon–Fri, 9:00 AM – 5:00 PM (by appointment)</div>
-        </div>
-      </div>
+      <!-- Contact card -->
+      <article class="panel">
+        <span class="badge">Get in touch</span>
+        <h2>We’re here to support you</h2>
+        <p class="muted" style="margin-top:0">Email us to arrange a meeting or warm referral.</p>
 
-      <!-- Full image gallery (Supervisor = web3) -->
-      <div class="gallery">
-        <div class="tile">
-          <div class="frame">
-            <img src="images/web3.jpg" alt="Supervisor">
+        <div class="contact-list">
+          <div class="row">
+            <div class="label">Email</div>
+            <div><a class="link" href="mailto:followupsupports@covenanthouse.ca">followupsupports@covenanthouse.ca</a></div>
           </div>
-          <div class="meta"><h4>Supervisor</h4><p>Program Lead</p></div>
+          <div class="row">
+            <div class="label">Visit</div>
+            <div>
+              Covenant House Toronto<br>
+              20 Gerrard St. E, Toronto, ON<br>
+              <a class="link" href="https://maps.google.com/?q=Covenant+House+Toronto+20+Gerrard+St+E" target="_blank" rel="noopener">Open in Google Maps</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="label">Hours</div>
+            <div>Mon–Fri, 9:00 AM – 5:00 PM (by appointment)</div>
+          </div>
         </div>
 
-        <div class="tile">
-          <div class="frame">
-            <img src="images/web1.jpg" alt="Follow-Up Support Worker 1">
-          </div>
-          <div class="meta"><h4>Follow-Up Support Worker</h4><p>Team Member</p></div>
+        <div class="actions">
+          <a class="btn" href="mailto:followupsupports@covenanthouse.ca">✉️ Email the team</a>
+          <a class="btn alt" href="resources.html">🔎 Browse resources</a>
         </div>
+      </article>
 
-        <div class="tile">
-          <div class="frame">
-            <img src="images/web2.jpg" alt="Follow-Up Support Worker 2">
+      <!-- Team gallery (web3 = Supervisor) -->
+      <article class="card">
+        <h2>Meet the Team</h2>
+        <div class="gallery">
+          <div class="tile">
+            <div class="frame">
+              <img src="images/web3.jpg" alt="Supervisor portrait">
+            </div>
+            <div class="meta"><h4>Supervisor</h4><p>Program Lead</p></div>
           </div>
-          <div class="meta"><h4>Follow-Up Support Worker</h4><p>Team Member</p></div>
-        </div>
 
-        <div class="tile">
-          <div class="frame">
-            <img src="images/web4.jpg" alt="Follow-Up Support Worker 3">
+          <div class="tile">
+            <div class="frame">
+              <img src="images/web1.jpg" alt="Follow-Up Support Worker portrait 1">
+            </div>
+            <div class="meta"><h4>Follow-Up Support Worker</h4><p>Team Member</p></div>
           </div>
-          <div class="meta"><h4>Follow-Up Support Worker</h4><p>Team Member</p></div>
-        </div>
 
-        <div class="tile">
-          <div class="frame">
-            <img src="images/web5.jpg" alt="Follow-Up Support Worker 4">
+          <div class="tile">
+            <div class="frame">
+              <img src="images/web2.jpg" alt="Follow-Up Support Worker portrait 2">
+            </div>
+            <div class="meta"><h4>Follow-Up Support Worker</h4><p>Team Member</p></div>
           </div>
-          <div class="meta"><h4>Follow-Up Support Worker</h4><p>Team Member</p></div>
+
+          <div class="tile">
+            <div class="frame">
+              <img src="images/web4.jpg" alt="Follow-Up Support Worker portrait 3">
+            </div>
+            <div class="meta"><h4>Follow-Up Support Worker</h4><p>Team Member</p></div>
+          </div>
         </div>
-      </div>
+      </article>
+
     </section>
-  </div>
+  </main>
 
   <footer>
-    &copy; 2025 Follow-Up Supports | Contact Team
+    &copy; 2025 Follow-Up Supports • Contact Team
   </footer>
+
+  <!-- Floating back-to-top button -->
+  <a href="#top" class="float-top" aria-label="Back to top">↑</a>
 
 </body>
 </html>
