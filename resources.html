@@ -2,194 +2,257 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Public Resource Hub | Follow-Up Supports</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f2f4f7;
-      color: #222;
+    :root{
+      --brand:#0d47a1;
+      --brand-2:#0f59c7;
+      --bg:#f5f7fb;
+      --text:#1f2937;
+      --muted:#667085;
+      --card:#ffffff;
+      --border:#e9edf3;
+      --ring:rgba(13,71,161,.12);
     }
-    header {
-      background-color: #0d47a1;
-      color: white;
-      padding: 50px 20px;
-      text-align: center;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      animation:fadeInBody .7s ease;
     }
-    nav {
-      background-color: white;
-      padding: 15px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
+    @keyframes fadeInBody{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+    /* Hero */
+    header.hero{
+      color:#fff;text-align:center;padding:52px 20px 38px;
+      background:radial-gradient(1100px 520px at 10% 0%,#1a6de0 0%,var(--brand) 40%,#0c3b86 100%);
+      box-shadow:0 10px 28px var(--ring);
+      animation:fadeInHero .8s ease;
     }
-    nav a {
-      color: #0d47a1;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: 600;
+    @keyframes fadeInHero{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+    .hero h1{margin:0 0 6px;font-weight:800;font-size:clamp(1.6rem,3vw,2.3rem)}
+    .hero p{margin:0;opacity:.95}
+
+    /* Primary nav */
+    nav.primary{
+      display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+      background:#fff;border:1px solid var(--border);border-radius:12px;padding:10px;
+      width:fit-content;margin:16px auto 0;box-shadow:0 10px 28px var(--ring);
+      animation:fadeInNav .9s ease;
     }
-    .container {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
+    @keyframes fadeInNav{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+    nav.primary a{
+      text-decoration:none;color:var(--brand);font-weight:600;
+      padding:8px 12px;border-radius:8px;white-space:nowrap;transition:.25s;
     }
-    .card {
-      background-color: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-      margin-bottom: 30px;
+    nav.primary a:hover{background:#eef5ff;transform:scale(1.04)}
+
+    /* Layout with sticky sidebar */
+    .container{max-width:1200px;margin:28px auto 64px;padding:0 20px}
+    .layout{display:grid;gap:18px;grid-template-columns:1fr}
+    @media (min-width:1000px){.layout{grid-template-columns:280px 1fr}}
+
+    .side{
+      position:sticky; top:14px; align-self:start;
+      background:#fff;border:1px solid var(--border);border-radius:14px;
+      box-shadow:0 10px 28px var(--ring); padding:16px;
+      animation:fadeInCard .6s ease forwards; opacity:0;
+      height:max-content;
     }
-    .card h2 {
-      margin-top: 0;
-      color: #0d47a1;
+    .side h3{margin:0 0 10px;font-size:1rem;color:var(--brand)}
+    .toc{display:grid;gap:8px}
+    .toc a{
+      color:#0d47a1;text-decoration:none;font-weight:600;font-size:.95rem;
+      padding:6px 8px;border-radius:8px;transition:.2s;
     }
-    .card ul {
-      padding-left: 18px;
+    .toc a:hover{background:#eef5ff}
+
+    /* Cards */
+    .stack{display:grid;gap:18px}
+    .card{
+      background:#fff;border:1px solid var(--border);border-radius:16px;
+      box-shadow:0 14px 36px var(--ring);padding:22px;
+      animation:fadeInCard .6s ease forwards; opacity:0;
     }
-    .card ul li {
-      margin-bottom: 10px;
-    }
-    footer {
-      background-color: #0d47a1;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      margin-top: 50px;
-    }
+    @keyframes fadeInCard{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    h2{margin:0 0 8px;font-size:1.28rem;color:var(--brand)}
+    .muted{color:var(--muted)}
+
+    /* Lists */
+    .list{padding-left:20px;margin:8px 0 0}
+    .list li{margin:8px 0}
+    .list a{color:var(--brand);text-decoration:none;font-weight:600}
+    .list a:hover{text-decoration:underline}
+
+    /* Footer */
+    footer{text-align:center;color:#98a2b3;font-size:.9rem;margin:36px 0 44px}
   </style>
 </head>
 <body>
 
-  <header>
+  <!-- HERO -->
+  <header class="hero">
     <h1>Public Resource Hub</h1>
     <p>50+ verified services across Ontario that are free and accessible to all</p>
+
+    <nav class="primary" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="transition-resources.html">Transition Help</a>
+      <a href="resources.html">General Resources</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="transition-resources.html">Transition Help</a>
-    <a href="resources.html">General Resources</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <main class="container layout">
+    <!-- Sticky sidebar -->
+    <aside class="side" aria-label="Jump to">
+      <h3>Jump to</h3>
+      <nav class="toc">
+        <a href="#housing">Housing & Shelter</a>
+        <a href="#food">Food Security</a>
+        <a href="#legal">Legal Assistance</a>
+        <a href="#mental">Mental Health & Addiction</a>
+        <a href="#health">Healthcare & Clinics</a>
+        <a href="#employment">Employment & Training</a>
+        <a href="#immigration">Immigration & ID</a>
+        <a href="#women">Women’s Support</a>
+        <a href="#lgbtq">LGBTQ+ Support</a>
+        <a href="#youth">Youth Programs</a>
+      </nav>
+    </aside>
 
-  <div class="container">
+    <!-- Main content -->
+    <section class="stack">
+      <!-- Intro -->
+      <article class="card">
+        <h2>How this page works</h2>
+        <p class="muted">
+          Everything below links to trusted public services. Click any item to open the official site in a new tab.
+          For directions and nearby locations, use our
+          <a href="https://www.google.com/maps/d/u/0/edit?mid=1PSAwJ99JycTMqmWT5Z0VraMA7icYHJU&usp=sharing" target="_blank" rel="noopener" style="color:#0d47a1;text-decoration:none;font-weight:700">Community Map</a>.
+        </p>
+      </article>
 
-    <div class="card">
-      <h2>🏠 Housing & Shelter Support</h2>
-      <ul>
-        <li><a href="https://www.toronto.ca/community-people/employment-social-support/housing-support/" target="_blank">Toronto Housing Stability Services</a></li>
-        <li><a href="https://www.housinghelpcentre.org/" target="_blank">Housing Help Centre (Scarborough)</a></li>
-        <li><a href="https://www.ymcagta.org/services/housing" target="_blank">YMCA Youth Housing Services</a></li>
-        <li><a href="https://www.shelterlistings.org/city/toronto-on.html" target="_blank">Toronto Shelter Listings</a></li>
-        <li><a href="https://www.ottawa.ca/en/family-and-social-services/housing/find-emergency-housing" target="_blank">Ottawa Emergency Housing</a></li>
-      </ul>
-    </div>
+      <!-- Sections -->
+      <article id="housing" class="card">
+        <h2>🏠 Housing & Shelter Support</h2>
+        <ul class="list">
+          <li><a href="https://www.toronto.ca/community-people/employment-social-support/housing-support/" target="_blank" rel="noopener">Toronto Housing Stability Services</a></li>
+          <li><a href="https://www.housinghelpcentre.org/" target="_blank" rel="noopener">Housing Help Centre (Scarborough)</a></li>
+          <li><a href="https://www.ymcagta.org/services/housing" target="_blank" rel="noopener">YMCA Youth Housing Services</a></li>
+          <li><a href="https://www.shelterlistings.org/city/toronto-on.html" target="_blank" rel="noopener">Toronto Shelter Listings</a></li>
+          <li><a href="https://www.ottawa.ca/en/family-and-social-services/housing/find-emergency-housing" target="_blank" rel="noopener">Ottawa Emergency Housing</a></li>
+        </ul>
+      </article>
 
-    <div class="card">
-      <h2>🍽️ Food Security</h2>
-      <ul>
-        <li><a href="https://www.dailybread.ca/need-food/" target="_blank">Daily Bread Food Bank – Find Food</a></li>
-        <li><a href="https://www.secondharvest.ca/need-food/" target="_blank">Second Harvest – Food Rescue</a></li>
-        <li><a href="https://www.foodbankscanada.ca/" target="_blank">Food Banks Canada</a></li>
-        <li><a href="https://www.toronto.ca/community-people/health-wellness-care/nutrition/community-meal-programs/" target="_blank">Toronto Meal Programs</a></li>
-        <li><a href="https://www.211ontario.ca/" target="_blank">211 Ontario – Food Programs</a></li>
-      </ul>
-    </div>
+      <article id="food" class="card">
+        <h2>🍽️ Food Security</h2>
+        <ul class="list">
+          <li><a href="https://www.dailybread.ca/need-food/" target="_blank" rel="noopener">Daily Bread Food Bank – Find Food</a></li>
+          <li><a href="https://www.secondharvest.ca/need-food/" target="_blank" rel="noopener">Second Harvest – Food Rescue</a></li>
+          <li><a href="https://www.foodbankscanada.ca/" target="_blank" rel="noopener">Food Banks Canada</a></li>
+          <li><a href="https://www.toronto.ca/community-people/health-wellness-care/nutrition/community-meal-programs/" target="_blank" rel="noopener">Toronto Meal Programs</a></li>
+          <li><a href="https://www.211ontario.ca/" target="_blank" rel="noopener">211 Ontario – Food Programs</a></li>
+        </ul>
+      </article>
 
-    <div class="card">
-      <h2>⚖️ Legal Assistance</h2>
-      <ul>
-        <li><a href="https://www.legalaid.on.ca/" target="_blank">Legal Aid Ontario</a></li>
-        <li><a href="https://cleoconnect.ca/" target="_blank">CLEO – Legal Education for Ontario</a></li>
-        <li><a href="https://justice.net/" target="_blank">JusticeNet – Sliding Scale Legal Help</a></li>
-        <li><a href="https://www.archdisabilitylaw.ca/" target="_blank">ARCH – Disability Law Centre</a></li>
-        <li><a href="https://lawfacts.ca/" target="_blank">LawFacts – Ontario Legal Info</a></li>
-      </ul>
-    </div>
+      <article id="legal" class="card">
+        <h2>⚖️ Legal Assistance</h2>
+        <ul class="list">
+          <li><a href="https://www.legalaid.on.ca/" target="_blank" rel="noopener">Legal Aid Ontario</a></li>
+          <li><a href="https://cleoconnect.ca/" target="_blank" rel="noopener">CLEO – Legal Education for Ontario</a></li>
+          <li><a href="https://justice.net/" target="_blank" rel="noopener">JusticeNet – Sliding Scale Legal Help</a></li>
+          <li><a href="https://www.archdisabilitylaw.ca/" target="_blank" rel="noopener">ARCH – Disability Law Centre</a></li>
+          <li><a href="https://lawfacts.ca/" target="_blank" rel="noopener">LawFacts – Ontario Legal Info</a></li>
+        </ul>
+      </article>
 
-    <div class="card">
-      <h2>🧬 Mental Health & Addiction</h2>
-      <ul>
-        <li><a href="https://www.connexontario.ca/" target="_blank">ConnexOntario – Mental Health & Addictions</a></li>
-        <li><a href="https://kidshelpphone.ca/" target="_blank">Kids Help Phone</a></li>
-        <li><a href="https://www.therapytoronto.ca/" target="_blank">Therapy Toronto – Low-Cost Therapy</a></li>
-        <li><a href="https://www.ymcagta.org/community-support/mental-health-services" target="_blank">YMCA Mental Health Programs</a></li>
-        <li><a href="https://mentalhealthcommission.ca/" target="_blank">Mental Health Commission of Canada</a></li>
-      </ul>
-    </div>
+      <article id="mental" class="card">
+        <h2>🧬 Mental Health & Addiction</h2>
+        <ul class="list">
+          <li><a href="https://www.connexontario.ca/" target="_blank" rel="noopener">ConnexOntario – Mental Health & Addictions</a></li>
+          <li><a href="https://kidshelpphone.ca/" target="_blank" rel="noopener">Kids Help Phone</a></li>
+          <li><a href="https://www.therapytoronto.ca/" target="_blank" rel="noopener">Therapy Toronto – Low-Cost Therapy</a></li>
+          <li><a href="https://www.ymcagta.org/community-support/mental-health-services" target="_blank" rel="noopener">YMCA Mental Health Programs</a></li>
+          <li><a href="https://mentalhealthcommission.ca/" target="_blank" rel="noopener">Mental Health Commission of Canada</a></li>
+        </ul>
+      </article>
 
-    <div class="card">
-      <h2>🪑 Healthcare & Clinics</h2>
-      <ul>
-        <li><a href="https://www.stmichaelshospital.com/programs/innercity/" target="_blank">St. Michael’s Inner City Health</a></li>
-        <li><a href="https://www.srchc.ca/" target="_blank">South Riverdale CHC</a></li>
-        <li><a href="https://www.whiwh.com/" target="_blank">Women's Health in Women's Hands CHC</a></li>
-        <li><a href="https://accessalliance.ca/" target="_blank">Access Alliance Multicultural Health</a></li>
-        <li><a href="https://www.ontario.ca/page/apply-ohip" target="_blank">Apply for OHIP</a></li>
-      </ul>
-    </div>
+      <article id="health" class="card">
+        <h2>🩺 Healthcare & Clinics</h2>
+        <ul class="list">
+          <li><a href="https://www.stmichaelshospital.com/programs/innercity/" target="_blank" rel="noopener">St. Michael’s Inner City Health</a></li>
+          <li><a href="https://www.srchc.ca/" target="_blank" rel="noopener">South Riverdale CHC</a></li>
+          <li><a href="https://www.whiwh.com/" target="_blank" rel="noopener">Women's Health in Women's Hands CHC</a></li>
+          <li><a href="https://accessalliance.ca/" target="_blank" rel="noopener">Access Alliance Multicultural Health</a></li>
+          <li><a href="https://www.ontario.ca/page/apply-ohip" target="_blank" rel="noopener">Apply for OHIP</a></li>
+        </ul>
+      </article>
 
-    <div class="card">
-      <h2>💼 Employment & Training</h2>
-      <ul>
-        <li><a href="https://www.metrac.org/programs/employment-training/" target="_blank">METRAC Employment & Skills</a></li>
-        <li><a href="https://opportunitiesforyouth.ca/" target="_blank">Opportunities for Youth</a></li>
-        <li><a href="https://careerserviceshrdc.com/" target="_blank">Career Services Ontario</a></li>
-        <li><a href="https://next-steponline.ca/" target="_blank">Next Step – Job & Life Skills</a></li>
-        <li><a href="https://www.ywcatoronto.org/ourprograms/employmentandtraining" target="_blank">YWCA Employment Services</a></li>
-      </ul>
-    </div>
+      <article id="employment" class="card">
+        <h2>💼 Employment & Training</h2>
+        <ul class="list">
+          <li><a href="https://www.metrac.org/programs/employment-training/" target="_blank" rel="noopener">METRAC Employment & Skills</a></li>
+          <li><a href="https://opportunitiesforyouth.ca/" target="_blank" rel="noopener">Opportunities for Youth</a></li>
+          <li><a href="https://careerserviceshrdc.com/" target="_blank" rel="noopener">Career Services Ontario</a></li>
+          <li><a href="https://next-steponline.ca/" target="_blank" rel="noopener">Next Step – Job & Life Skills</a></li>
+          <li><a href="https://www.ywcatoronto.org/ourprograms/employmentandtraining" target="_blank" rel="noopener">YWCA Employment Services</a></li>
+        </ul>
+      </article>
 
-    <div class="card">
-      <h2>📄 Immigration & Identification</h2>
-      <ul>
-        <li><a href="https://settlement.org/" target="_blank">Settlement.org – ID, OHIP, Immigration</a></li>
-        <li><a href="https://www.cic.gc.ca/" target="_blank">IRCC – Immigration Canada</a></li>
-        <li><a href="https://ocasi.org/" target="_blank">OCASI – Ontario Council of Agencies Serving Immigrants</a></li>
-        <li><a href="https://www.accesemployment.ca/" target="_blank">ACCES Employment for Newcomers</a></li>
-        <li><a href="https://www.legalline.ca/legal-answers/id-and-birth-certificate-ontario/" target="_blank">Get ID & Birth Certificate</a></li>
-      </ul>
-    </div>
+      <article id="immigration" class="card">
+        <h2>📄 Immigration & Identification</h2>
+        <ul class="list">
+          <li><a href="https://settlement.org/" target="_blank" rel="noopener">Settlement.org – ID, OHIP, Immigration</a></li>
+          <li><a href="https://www.cic.gc.ca/" target="_blank" rel="noopener">IRCC – Immigration Canada</a></li>
+          <li><a href="https://ocasi.org/" target="_blank" rel="noopener">OCASI – Ontario Council of Agencies Serving Immigrants</a></li>
+          <li><a href="https://www.accesemployment.ca/" target="_blank" rel="noopener">ACCES Employment for Newcomers</a></li>
+          <li><a href="https://www.legalline.ca/legal-answers/id-and-birth-certificate-ontario/" target="_blank" rel="noopener">Get ID & Birth Certificate</a></li>
+        </ul>
+      </article>
 
-    <div class="card">
-      <h2>👩 Women’s Support</h2>
-      <ul>
-        <li><a href="https://www.awhl.org/" target="_blank">Assaulted Women’s Helpline</a></li>
-        <li><a href="https://www.ywcatoronto.org/" target="_blank">YWCA Toronto</a></li>
-        <li><a href="https://www.intervalhouse.ca/" target="_blank">Interval House</a></li>
-        <li><a href="https://www.nellies.org/" target="_blank">Nellie’s Shelter</a></li>
-        <li><a href="https://www.elizabethfrytoronto.org/" target="_blank">Elizabeth Fry Society</a></li>
-      </ul>
-    </div>
+      <article id="women" class="card">
+        <h2>👩 Women’s Support</h2>
+        <ul class="list">
+          <li><a href="https://www.awhl.org/" target="_blank" rel="noopener">Assaulted Women’s Helpline</a></li>
+          <li><a href="https://www.ywcatoronto.org/" target="_blank" rel="noopener">YWCA Toronto</a></li>
+          <li><a href="https://www.intervalhouse.ca/" target="_blank" rel="noopener">Interval House</a></li>
+          <li><a href="https://www.nellies.org/" target="_blank" rel="noopener">Nellie’s Shelter</a></li>
+          <li><a href="https://www.elizabethfrytoronto.org/" target="_blank" rel="noopener">Elizabeth Fry Society</a></li>
+        </ul>
+      </article>
 
-    <div class="card">
-      <h2>🌈 LGBTQ+ Support</h2>
-      <ul>
-        <li><a href="https://www.the519.org/" target="_blank">The 519 Community Centre</a></li>
-        <li><a href="https://sherbourne.on.ca/" target="_blank">Sherbourne Health – LGBTQ+ Programs</a></li>
-        <li><a href="https://rainbowhealthontario.ca/" target="_blank">Rainbow Health Ontario</a></li>
-        <li><a href="https://www.egale.ca/" target="_blank">Egale Canada</a></li>
-        <li><a href="https://www.queerontario.org/resources/" target="_blank">Queer Ontario Resources</a></li>
-      </ul>
-    </div>
+      <article id="lgbtq" class="card">
+        <h2>🌈 LGBTQ+ Support</h2>
+        <ul class="list">
+          <li><a href="https://www.the519.org/" target="_blank" rel="noopener">The 519 Community Centre</a></li>
+          <li><a href="https://sherbourne.on.ca/" target="_blank" rel="noopener">Sherbourne Health – LGBTQ+ Programs</a></li>
+          <li><a href="https://rainbowhealthontario.ca/" target="_blank" rel="noopener">Rainbow Health Ontario</a></li>
+          <li><a href="https://www.egale.ca/" target="_blank" rel="noopener">Egale Canada</a></li>
+          <li><a href="https://www.queerontario.org/resources/" target="_blank" rel="noopener">Queer Ontario Resources</a></li>
+        </ul>
+      </article>
 
-    <div class="card">
-      <h2>👩‍💼 Youth Programs</h2>
-      <ul>
-        <li><a href="https://youthrex.hub.youthpolicy.org/" target="_blank">YouthREX Program Database</a></li>
-        <li><a href="https://www.tdsb.on.ca/About-Us/Innovation/Youth-Hubs" target="_blank">TDSB Youth Hubs</a></li>
-        <li><a href="https://www.torontopubliclibrary.ca/programs/teens/" target="_blank">Toronto Library Youth Programs</a></li>
-        <li><a href="https://www.toronto.ca/community-people/youth/" target="_blank">City of Toronto Youth Services</a></li>
-        <li><a href="https://www.successbc.ca/eng/" target="_blank">SUCCESS Youth Mentorship</a></li>
-      </ul>
-    </div>
+      <article id="youth" class="card">
+        <h2>👩‍💼 Youth Programs</h2>
+        <ul class="list">
+          <li><a href="https://youthrex.hub.youthpolicy.org/" target="_blank" rel="noopener">YouthREX Program Database</a></li>
+          <li><a href="https://www.tdsb.on.ca/About-Us/Innovation/Youth-Hubs" target="_blank" rel="noopener">TDSB Youth Hubs</a></li>
+          <li><a href="https://www.torontopubliclibrary.ca/programs/teens/" target="_blank" rel="noopener">Toronto Library Youth Programs</a></li>
+          <li><a href="https://www.toronto.ca/community-people/youth/" target="_blank" rel="noopener">City of Toronto Youth Services</a></li>
+          <li><a href="https://www.successbc.ca/eng/" target="_blank" rel="noopener">SUCCESS Youth Mentorship</a></li>
+        </ul>
+      </article>
 
-  </div>
+    </section>
+  </main>
 
   <footer>
     &copy; 2025 Follow-Up Supports | Compiled by Kaleab Alemseged
@@ -197,4 +260,3 @@
 
 </body>
 </html>
-
