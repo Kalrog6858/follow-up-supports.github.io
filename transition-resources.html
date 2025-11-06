@@ -4,145 +4,241 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Transition Resources | Follow-Up Supports</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f2f4f7;
-      color: #222;
+    :root{
+      --brand:#0d47a1; --brand-2:#0f59c7;
+      --bg:#f5f7fb; --text:#1f2937; --muted:#667085;
+      --card:#ffffff; --border:#e9edf3; --ring:rgba(13,71,161,.12);
     }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);color:var(--text);line-height:1.6;
+      animation:fadeInBody .7s ease;
+    }
+    @keyframes fadeInBody{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-    header {
-      background-color: #0d47a1;
-      color: white;
-      padding: 50px 20px;
-      text-align: center;
+    /* Hero */
+    header.hero{
+      color:#fff;text-align:center;padding:52px 20px 38px;
+      background:radial-gradient(1100px 520px at 10% 0%,#1a6de0 0%,var(--brand) 40%,#0c3b86 100%);
+      box-shadow:0 10px 28px var(--ring);animation:fadeInHero .8s ease;
     }
+    @keyframes fadeInHero{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+    .hero h1{margin:0 0 6px;font-weight:800;font-size:clamp(1.7rem,3vw,2.3rem)}
+    .hero p{margin:0;opacity:.95}
 
-    nav {
-      background-color: white;
-      padding: 15px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
+    /* Primary nav */
+    nav.primary{
+      display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
+      background:#fff;border:1px solid var(--border);border-radius:12px;padding:10px;
+      width:fit-content;margin:16px auto 0;box-shadow:0 10px 28px var(--ring);animation:fadeInNav .9s ease;
     }
+    @keyframes fadeInNav{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+    nav.primary a{
+      text-decoration:none;color:var(--brand);font-weight:600;
+      padding:8px 12px;border-radius:8px;white-space:nowrap;transition:.25s;
+    }
+    nav.primary a:hover{background:#eef5ff;transform:scale(1.04)}
 
-    nav a {
-      color: #0d47a1;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: 600;
-      font-size: 1rem;
-    }
+    /* Layout + sidebar */
+    .container{max-width:1200px;margin:28px auto 64px;padding:0 20px}
+    .layout{display:grid;gap:18px;grid-template-columns:1fr}
+    @media (min-width:1000px){.layout{grid-template-columns:280px 1fr}}
 
-    .container {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
+    .side{
+      position:sticky; top:14px; align-self:start;height:max-content;
+      background:#fff;border:1px solid var(--border);border-radius:14px;
+      box-shadow:0 10px 28px var(--ring); padding:16px;animation:fadeInCard .6s ease forwards; opacity:0;
     }
+    .side h3{margin:0 0 10px;font-size:1rem;color:var(--brand)}
+    .toc{display:grid;gap:8px}
+    .toc a{
+      color:#0d47a1;text-decoration:none;font-weight:600;font-size:.95rem;
+      padding:6px 8px;border-radius:8px;transition:.2s;
+    }
+    .toc a:hover{background:#eef5ff}
 
-    .card {
-      background-color: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-      margin-bottom: 30px;
+    /* Cards & content */
+    .stack{display:grid;gap:18px}
+    .card{
+      background:#fff;border:1px solid var(--border);border-radius:16px;
+      box-shadow:0 14px 36px var(--ring);padding:22px;
+      animation:fadeInCard .6s ease forwards; opacity:0;
     }
+    @keyframes fadeInCard{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+    h2{margin:0 0 8px;font-size:1.28rem;color:var(--brand)}
+    .muted{color:var(--muted)}
+    .list{padding-left:20px;margin:8px 0 0}
+    .list li{margin:8px 0}
+    .list a{color:var(--brand);text-decoration:none;font-weight:600}
+    .list a:hover{text-decoration:underline}
 
-    .card h2 {
-      margin-top: 0;
-      color: #0d47a1;
-    }
+    /* Optional tips (accordion style, pure HTML) */
+    details{border:1px dashed var(--border);border-radius:12px;padding:10px 12px;background:#fbfcff;margin-top:10px}
+    summary{cursor:pointer;font-weight:700;color:var(--brand)}
+    summary::-webkit-details-marker{display:none}
+    summary::after{content:" +";font-weight:700}
+    details[open] summary::after{content:" –"}
 
-    .card ul {
-      padding-left: 18px;
+    /* Floating back-to-top button */
+    .float-top{
+      position: fixed; right: 16px; bottom: 18px; width: 48px; height: 48px;
+      border-radius: 999px; background: var(--brand); color: #fff; text-decoration: none;
+      font-weight: 800; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 26px rgba(13,71,161,.35); border: 1px solid rgba(255,255,255,.25);
+      transition: transform .2s ease, filter .2s ease; z-index: 50;
     }
+    .float-top:hover{ transform: translateY(-3px) scale(1.03); filter: brightness(1.05); }
+    @media (max-width:520px){ .float-top{ right: 12px; bottom: 12px; width: 44px; height: 44px; } }
 
-    .card ul li {
-      margin-bottom: 10px;
-    }
-
-    a.resource-link {
-      color: #0d47a1;
-      text-decoration: underline;
-    }
-
-    footer {
-      background-color: #0d47a1;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      margin-top: 50px;
-    }
+    footer{text-align:center;color:#98a2b3;font-size:.9rem;margin:36px 0 44px}
   </style>
 </head>
 <body>
 
-  <header>
+  <!-- HERO -->
+  <header class="hero" id="top">
     <h1>Resources for Transitioning from Shelter</h1>
     <p>Helpful programs and services for youth starting independent living</p>
+
+    <nav class="primary" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="resources.html">General Resources</a>
+      <a href="transition-resources.html">Transition Resources</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="transition-resources.html">Transition Resources</a>
-  </nav>
+  <main class="container layout">
+    <!-- Sticky sidebar -->
+    <aside class="side" aria-label="Jump to">
+      <h3>Jump to</h3>
+      <nav class="toc">
+        <a href="#housing">Housing & Rent Support</a>
+        <a href="#income">Income & Benefits</a>
+        <a href="#mental">Mental Health Support</a>
+        <a href="#food">Food Access</a>
+        <a href="#jobs">Jobs & Training</a>
+        <a href="#id">ID & Documents</a>
+      </nav>
+    </aside>
 
-  <div class="container">
-    <div class="card">
-      <h2>🏠 Housing & Rent Support</h2>
-      <ul>
-        <li><a class="resource-link" href="https://www.toronto.ca/community-people/employment-social-support/housing-support/" target="_blank">Toronto Rent & Housing Support</a></li>
-        <li><a class="resource-link" href="https://www.surveymonkey.com/r/housingconnect" target="_blank">Housing Help Centres in Toronto</a></li>
-      </ul>
-    </div>
+    <!-- Main content -->
+    <section class="stack">
+      <!-- Intro / how to use -->
+      <article class="card">
+        <h2>How to use this page</h2>
+        <p class="muted">
+          Start with the section you need most. Each category links to official sites and programs.
+          Bring basic ID (health card or passport if you have it) and any letters you received from housing or income supports.
+        </p>
+      </article>
 
-    <div class="card">
-      <h2>💰 Income & Benefits</h2>
-      <ul>
-        <li><a class="resource-link" href="https://www.ontario.ca/page/ontario-works" target="_blank">Apply for Ontario Works</a></li>
-        <li><a class="resource-link" href="https://www.canada.ca/en/revenue-agency/services/child-family-benefits/gsthstc-apply.html" target="_blank">GST/HST Credit & Benefits</a></li>
-      </ul>
-    </div>
+      <!-- Sections (your existing links preserved) -->
+      <article id="housing" class="card">
+        <h2>🏠 Housing & Rent Support</h2>
+        <ul class="list">
+          <li><a href="https://www.toronto.ca/community-people/employment-social-support/housing-support/" target="_blank" rel="noopener">Toronto Rent & Housing Support</a></li>
+          <li><a href="https://www.surveymonkey.com/r/housingconnect" target="_blank" rel="noopener">Housing Help Centres in Toronto</a></li>
+        </ul>
+        <details>
+          <summary>Tips for faster housing help</summary>
+          <ul class="list">
+            <li>Save proof of income/benefits and a copy of your ID; bring them to appointments.</li>
+            <li>Ask agencies about stabilization funds (last month’s rent, arrears, furniture banks).</li>
+            <li>If you get a letter from housing, reply by the deadline—missed replies can delay offers.</li>
+          </ul>
+        </details>
+      </article>
 
-    <div class="card">
-      <h2>🧠 Mental Health Support</h2>
-      <ul>
-        <li><a class="resource-link" href="https://www.ementalhealth.ca/Toronto/Mental-Health-Services-for-Youth/index.php?m=heading&ID=48" target="_blank">eMentalHealth Youth Services</a></li>
-        <li><a class="resource-link" href="https://www.ymcagta.org/community-support/mental-health-services" target="_blank">YMCA Mental Health Programs</a></li>
-      </ul>
-    </div>
+      <article id="income" class="card">
+        <h2>💰 Income & Benefits</h2>
+        <ul class="list">
+          <li><a href="https://www.ontario.ca/page/ontario-works" target="_blank" rel="noopener">Apply for Ontario Works</a></li>
+          <li><a href="https://www.canada.ca/en/revenue-agency/services/child-family-benefits/gsthstc-apply.html" target="_blank" rel="noopener">GST/HST Credit & Benefits</a></li>
+        </ul>
+        <details>
+          <summary>What to prepare</summary>
+          <ul class="list">
+            <li>ID, SIN (if you have one), and banking info for direct deposit.</li>
+            <li>Rent amount and landlord info if you want direct-to-landlord payment set up.</li>
+            <li>Keep all mail from OW/ODSP—missed requests can pause your file.</li>
+          </ul>
+        </details>
+      </article>
 
-    <div class="card">
-      <h2>🍽️ Food Access</h2>
-      <ul>
-        <li><a class="resource-link" href="https://www.dailybread.ca/need-food/" target="_blank">Daily Bread Food Bank</a></li>
-        <li><a class="resource-link" href="https://www.toronto.ca/community-people/health-wellness-care/health-programs-advice/nutrition-programs/community-meal-programs/" target="_blank">Toronto Community Meals</a></li>
-      </ul>
-    </div>
+      <article id="mental" class="card">
+        <h2>🧠 Mental Health Support</h2>
+        <ul class="list">
+          <li><a href="https://www.ementalhealth.ca/Toronto/Mental-Health-Services-for-Youth/index.php?m=heading&ID=48" target="_blank" rel="noopener">eMentalHealth Youth Services</a></li>
+          <li><a href="https://www.ymcagta.org/community-support/mental-health-services" target="_blank" rel="noopener">YMCA Mental Health Programs</a></li>
+        </ul>
+        <details>
+          <summary>If the wait is long</summary>
+          <ul class="list">
+            <li>Ask for single-session/walk-in counselling you can access right away.</li>
+            <li>Request a safety plan and crisis numbers if you feel at risk.</li>
+          </ul>
+        </details>
+      </article>
 
-    <div class="card">
-      <h2>💼 Jobs & Training</h2>
-      <ul>
-        <li><a class="resource-link" href="https://www.yes.on.ca/" target="_blank">Youth Employment Services (YES)</a></li>
-        <li><a class="resource-link" href="https://www.jobbank.gc.ca/youth" target="_blank">Canada Job Bank - Youth</a></li>
-      </ul>
-    </div>
+      <article id="food" class="card">
+        <h2>🍽️ Food Access</h2>
+        <ul class="list">
+          <li><a href="https://www.dailybread.ca/need-food/" target="_blank" rel="noopener">Daily Bread Food Bank</a></li>
+          <li><a href="https://www.toronto.ca/community-people/health-wellness-care/health-programs-advice/nutrition-programs/community-meal-programs/" target="_blank" rel="noopener">Toronto Community Meals</a></li>
+        </ul>
+        <details>
+          <summary>First visit?</summary>
+          <ul class="list">
+            <li>Some programs do a quick intake (name, postal code, household size).</li>
+            <li>Check hours—many close early or have specific service days.</li>
+          </ul>
+        </details>
+      </article>
 
-    <div class="card">
-      <h2>📄 ID & Documents</h2>
-      <ul>
-        <li><a class="resource-link" href="https://www.ontario.ca/page/get-or-replace-ontario-photo-card" target="_blank">Ontario Photo ID</a></li>
-        <li><a class="resource-link" href="https://settlement.org/ontario/daily-life/identification-ids/ontario-health-card/how-do-i-apply-for-a-health-card-ohip/" target="_blank">How to Get an OHIP Health Card</a></li>
-      </ul>
-    </div>
-  </div>
+      <article id="jobs" class="card">
+        <h2>💼 Jobs & Training</h2>
+        <ul class="list">
+          <li><a href="https://www.yes.on.ca/" target="_blank" rel="noopener">Youth Employment Services (YES)</a></li>
+          <li><a href="https://www.jobbank.gc.ca/youth" target="_blank" rel="noopener">Canada Job Bank – Youth</a></li>
+        </ul>
+        <details>
+          <summary>Quick wins</summary>
+          <ul class="list">
+            <li>Ask about paid pre-employment programs and certifications (WHMIS, First Aid).</li>
+            <li>Use agency computers/printers for free to apply and print resumes.</li>
+          </ul>
+        </details>
+      </article>
+
+      <article id="id" class="card">
+        <h2>📄 ID & Documents</h2>
+        <ul class="list">
+          <li><a href="https://www.ontario.ca/page/get-or-replace-ontario-photo-card" target="_blank" rel="noopener">Ontario Photo ID</a></li>
+          <li><a href="https://settlement.org/ontario/daily-life/identification-ids/ontario-health-card/how-do-i-apply-for-a-health-card-ohip/" target="_blank" rel="noopener">How to Get an OHIP Health Card</a></li>
+        </ul>
+        <details>
+          <summary>No fixed address?</summary>
+          <ul class="list">
+            <li>Ask an agency for a letter or service address to receive mail.</li>
+            <li>Keep photocopies or photos of your documents in a safe cloud folder.</li>
+          </ul>
+        </details>
+      </article>
+    </section>
+  </main>
 
   <footer>
     &copy; 2025 Follow-Up Supports | Curated by Kaleab Alemseged
   </footer>
 
+  <!-- Floating back-to-top button -->
+  <a href="#top" class="float-top" aria-label="Back to top">↑</a>
+
 </body>
 </html>
-
