@@ -3,135 +3,265 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Follow-Up Supports | Community Hub</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Follow-Up Supports (Supports Beyond Shelter)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
+    :root{
+      --brand:#0d47a1;
+      --brand-2:#0f59c7;
+      --bg:#f5f7fb;
+      --text:#1f2937;
+      --muted:#667085;
+      --card:#ffffff;
+      --border:#e9edf3;
+      --ring:rgba(13,71,161,.12);
     }
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f2f4f7;
-      color: #222;
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      animation: fadeInBody 1s ease-in;
     }
 
-    header {
-      background-color: #0d47a1;
-      color: white;
-      padding: 50px 20px;
-      text-align: center;
+    @keyframes fadeInBody{
+      from{opacity:0; transform:translateY(10px);}
+      to{opacity:1; transform:translateY(0);}
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    /* Hero Section */
+    header.hero{
+      color:#fff;
+      text-align:center;
+      padding:56px 20px 42px;
+      background: radial-gradient(1200px 600px at 10% 0%, #1a6de0 0%, var(--brand) 40%, #0c3b86 100%);
+      animation: fadeInHero 1s ease-in-out;
     }
 
-    header p {
-      font-size: 1.1rem;
-      margin-top: 10px;
+    @keyframes fadeInHero{
+      from{opacity:0; transform:translateY(-10px);}
+      to{opacity:1; transform:translateY(0);}
     }
 
-    nav {
-      background-color: white;
-      padding: 15px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
+    .hero h1{
+      margin:0 0 8px;
+      font-weight:800;
+      font-size:clamp(1.8rem,3.2vw,2.6rem);
+      letter-spacing:.2px;
     }
 
-    nav a {
-      color: #0d47a1;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: 600;
-      font-size: 1rem;
+    .hero p{margin:0;opacity:.95;}
+
+    /* Nav */
+    nav.primary{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      justify-content:center;
+      background:#fff;
+      border:1px solid var(--border);
+      box-shadow:0 10px 28px var(--ring);
+      border-radius:12px;
+      padding:10px;
+      width:fit-content;
+      margin:18px auto 0;
+      animation: fadeInNav 1.2s ease-in-out;
     }
 
-    .container {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
+    @keyframes fadeInNav{
+      from{opacity:0; transform:translateY(-10px);}
+      to{opacity:1; transform:translateY(0);}
     }
 
-    .card {
-      background-color: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-      margin-bottom: 30px;
+    nav.primary a{
+      text-decoration:none;
+      color:var(--brand);
+      font-weight:600;
+      padding:8px 12px;
+      border-radius:8px;
+      white-space:nowrap;
+      transition: all 0.3s ease;
     }
 
-    .card h2 {
-      margin-top: 0;
-      color: #0d47a1;
+    nav.primary a:hover{
+      background:#eef5ff;
+      transform:scale(1.05);
     }
 
-    .btn {
-      display: inline-block;
-      background-color: #0d47a1;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 15px;
+    /* Containers */
+    .container{max-width:1100px;margin:28px auto 64px;padding:0 20px;}
+    .stack{display:grid;gap:18px;}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:16px;
+      box-shadow:0 14px 36px var(--ring);
+      padding:26px;
+      animation: fadeInCard 0.8s ease forwards;
+      opacity:0;
     }
 
-    footer {
-      background-color: #0d47a1;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      margin-top: 50px;
+    @keyframes fadeInCard{
+      from{opacity:0;transform:translateY(15px);}
+      to{opacity:1;transform:translateY(0);}
     }
 
-    @media (max-width: 600px) {
-      nav a {
-        display: block;
-        margin: 10px 0;
-      }
+    h2{margin:0 0 10px;font-size:1.35rem;}
+    .muted{color:var(--muted);}
+
+    /* Buttons */
+    .btn{
+      display:inline-block;
+      background:var(--brand);
+      color:#fff;
+      text-decoration:none;
+      font-weight:700;
+      padding:12px 18px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 8px 22px rgba(13,71,161,.28);
+      margin-top:8px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover{
+      filter:brightness(1.1);
+      transform:scale(1.05);
+    }
+
+    /* Two-column layout */
+    .band{display:grid;gap:16px;grid-template-columns:1fr;}
+    @media (min-width:900px){.band{grid-template-columns:1.2fr .8fr;}}
+
+    /* Resource Tiles */
+    .grid{
+      display:grid;
+      gap:18px;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      margin-top:6px;
+    }
+
+    .tile{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:16px;
+      box-shadow:0 10px 28px var(--ring);
+      transition:all 0.3s ease;
+      opacity:0;
+      animation: fadeInTile 1s ease forwards;
+    }
+
+    .tile:hover{
+      transform:translateY(-6px) scale(1.02);
+      box-shadow:0 16px 36px rgba(13,71,161,0.25);
+    }
+
+    @keyframes fadeInTile{
+      from{opacity:0; transform:translateY(15px);}
+      to{opacity:1; transform:translateY(0);}
+    }
+
+    .tile h3{
+      margin:0 0 6px;
+      font-size:1.05rem;
+      color:var(--brand);
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .tile p{margin:0;color:#5f6c7a;font-size:.95rem;}
+    .emoji{font-size:1.25rem;}
+
+    footer{
+      text-align:center;
+      color:#98a2b3;
+      font-size:.9rem;
+      margin:36px 0 44px;
+      animation: fadeInFooter 1.2s ease;
+    }
+
+    @keyframes fadeInFooter{
+      from{opacity:0;}
+      to{opacity:1;}
     }
   </style>
 </head>
 <body>
 
-  <header>
+  <header class="hero">
     <h1>Follow-Up Supports (Supports Beyond Shelter)</h1>
     <p>Helping youth navigate life after care and shelter</p>
+
+    <nav class="primary" aria-label="Primary">
+      <a href="resources.html">Resources</a>
+      <a href="https://www.google.com/maps/d/u/0/edit?mid=1PSAwJ99JycTMqmWT5Z0VraMA7icYHJU&ll=50.52375772338418%2C-91.17590614999999&z=5" target="_blank" rel="noopener">Community Map</a>
+      <a href="transition-resources.html">Transition Help</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <nav>
-    <a href="resources.html">Resources</a>
-    <a href="https://www.google.com/maps/d/u/0/edit?mid=1PSAwJ99JycTMqmWT5Z0VraMA7icYHJU&ll=50.52375772338418%2C-91.17590614999999&z=5" target="_blank">Community Map</a>
-    <a href="transition-resources.html">Transition Help</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <main class="container stack">
 
-  <div class="container">
-    <div class="card">
+    <section class="card">
       <h2>Welcome!</h2>
-      <p>This website was created to support youth who are transitioning out of shelters or care. We’ve gathered key resources and mapped out important services across Ontario to help you succeed.</p>
-      <a class="btn" href="https://www.google.com/maps/d/u/0/edit?mid=1PSAwJ99JycTMqmWT5Z0VraMA7icYHJU&usp=sharing" target="_blank">View Community Map</a>
-    </div>
+      <p class="muted" style="max-width:68ch">
+        This website was created to support youth who are transitioning out of shelters or care.
+        We’ve gathered key resources and mapped out important services across Ontario to help you succeed.
+      </p>
+      <a class="btn" href="https://www.google.com/maps/d/u/0/edit?mid=1PSAwJ99JycTMqmWT5Z0VraMA7icYHJU&usp=sharing" target="_blank" rel="noopener">View Community Map</a>
+    </section>
 
-    <div class="card" id="resources">
-      <h2>Key Resources</h2>
-      <ul>
-        <li><strong>🏠 Housing:</strong> Find transitional and affordable housing programs.</li>
-        <li><strong>🍽️ Food Support:</strong> Locations for food banks, free meals, and grocery cards.</li>
-        <li><strong>🧠 Mental Health:</strong> Access free counseling and emotional wellness services.</li>
-        <li><strong>💼 Employment:</strong> Resume help, job boards, and youth employment centers.</li>
-        <li><strong>🩺 Health Care:</strong> Walk-in clinics, OHIP registration help, and harm reduction.</li>
-      </ul>
-    </div>
-  </div>
+    <section class="band">
+      <div class="card">
+        <h2>Key Resources</h2>
+        <div class="grid">
+          <article class="tile">
+            <h3><span class="emoji">🏠</span>Housing</h3>
+            <p>Transitional & affordable housing programs, RGI, stabilization supports.</p>
+          </article>
+          <article class="tile">
+            <h3><span class="emoji">🍽️</span>Food Support</h3>
+            <p>Food banks, free meals, grocery card programs, community fridges.</p>
+          </article>
+          <article class="tile">
+            <h3><span class="emoji">🧠</span>Mental Health</h3>
+            <p>No-cost counselling, crisis lines, walk-in clinics, wellness groups.</p>
+          </article>
+          <article class="tile">
+            <h3><span class="emoji">💼</span>Employment</h3>
+            <p>Resume help, job boards, youth employment centres, training.</p>
+          </article>
+          <article class="tile">
+            <h3><span class="emoji">🩺</span>Health Care</h3>
+            <p>Walk-in clinics, OHIP registration help, harm reduction services.</p>
+          </article>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h2>What you’ll find here</h2>
+        <p class="muted">
+          • Verified services across the GTA and Ontario<br>
+          • Practical info for housing, income, legal help, and health<br>
+          • A living map we update as programs change
+        </p>
+        <p class="muted" style="margin-top:10px">
+          Need help from a person? Our Follow-Up team can book time with you.
+        </p>
+        <a class="btn" href="contact.html" style="margin-top:8px">Contact the Team</a>
+      </aside>
+    </section>
+  </main>
 
   <footer>
-    &copy; 2025 Follow-Up Supports | Created by Kaleab Alemseged
+    &copy; 2025 Follow-Up Supports • Created by Kaleab Alemseged
   </footer>
 
 </body>
