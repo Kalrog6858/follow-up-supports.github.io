@@ -7,23 +7,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --brand:#0d47a1;
-      --brand-2:#0f59c7;
-      --bg:#f5f7fb;
-      --text:#1f2937;
-      --muted:#667085;
-      --card:#ffffff;
-      --border:#e9edf3;
-      --ring:rgba(13,71,161,.12);
+      --brand:#0d47a1; --brand-2:#0f59c7;
+      --bg:#f5f7fb; --text:#1f2937; --muted:#667085;
+      --card:#ffffff; --border:#e9edf3; --ring:rgba(13,71,161,.12);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
+      background:var(--bg);color:var(--text);line-height:1.6;
       animation:fadeInBody .7s ease;
     }
     @keyframes fadeInBody{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
@@ -46,7 +39,6 @@
       width:fit-content;margin:16px auto 0;box-shadow:0 10px 28px var(--ring);
       animation:fadeInNav .9s ease;
     }
-    @keyframes fadeInNav{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
     nav.primary a{
       text-decoration:none;color:var(--brand);font-weight:600;
       padding:8px 12px;border-radius:8px;white-space:nowrap;transition:.25s;
@@ -79,6 +71,8 @@
       background:#fff;border:1px solid var(--border);border-radius:16px;
       box-shadow:0 14px 36px var(--ring);padding:22px;
       animation:fadeInCard .6s ease forwards; opacity:0;
+      /* make anchor jumps stop below sticky elements */
+      scroll-margin-top:110px;
     }
     @keyframes fadeInCard{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
     h2{margin:0 0 8px;font-size:1.28rem;color:var(--brand)}
@@ -110,13 +104,8 @@
       transition: transform .2s ease, filter .2s ease;
       z-index: 50;
     }
-    .float-top:hover{
-      transform: translateY(-3px) scale(1.03);
-      filter: brightness(1.05);
-    }
-    @media (max-width:520px){
-      .float-top{ right: 12px; bottom: 12px; width: 44px; height: 44px; }
-    }
+    .float-top:hover{transform: translateY(-3px) scale(1.03); filter: brightness(1.05)}
+    @media (max-width:520px){ .float-top{ right: 12px; bottom: 12px; width: 44px; height: 44px } }
 
     footer{text-align:center;color:#98a2b3;font-size:.9rem;margin:36px 0 44px}
   </style>
@@ -166,9 +155,10 @@
         </p>
       </article>
 
-      <!-- All existing cards (kept identical to your version) -->
-      <!-- Each has same structure -->
-      <article id="housing" class="card"><h2>🏠 Housing & Shelter Support</h2>
+      <!-- ALL SECTIONS WITH MATCHING IDs -->
+
+      <article id="housing" class="card">
+        <h2>🏠 Housing & Shelter Support</h2>
         <ul class="list">
           <li><a href="https://www.toronto.ca/community-people/employment-social-support/housing-support/" target="_blank" rel="noopener">Toronto Housing Stability Services</a></li>
           <li><a href="https://www.housinghelpcentre.org/" target="_blank" rel="noopener">Housing Help Centre (Scarborough)</a></li>
@@ -178,9 +168,104 @@
         </ul>
       </article>
 
-      <!-- Repeat your remaining sections (food, legal, etc.) exactly like before -->
-      <!-- ... (content omitted for brevity; same as your last version) ... -->
+      <article id="food" class="card">
+        <h2>🍽️ Food Security</h2>
+        <ul class="list">
+          <li><a href="https://www.dailybread.ca/need-food/" target="_blank" rel="noopener">Daily Bread Food Bank – Find Food</a></li>
+          <li><a href="https://www.secondharvest.ca/need-food/" target="_blank" rel="noopener">Second Harvest – Food Rescue</a></li>
+          <li><a href="https://www.foodbankscanada.ca/" target="_blank" rel="noopener">Food Banks Canada</a></li>
+          <li><a href="https://www.toronto.ca/community-people/health-wellness-care/nutrition/community-meal-programs/" target="_blank" rel="noopener">Toronto Meal Programs</a></li>
+          <li><a href="https://www.211ontario.ca/" target="_blank" rel="noopener">211 Ontario – Food Programs</a></li>
+        </ul>
+      </article>
 
+      <article id="legal" class="card">
+        <h2>⚖️ Legal Assistance</h2>
+        <ul class="list">
+          <li><a href="https://www.legalaid.on.ca/" target="_blank" rel="noopener">Legal Aid Ontario</a></li>
+          <li><a href="https://cleoconnect.ca/" target="_blank" rel="noopener">CLEO – Legal Education for Ontario</a></li>
+          <li><a href="https://justice.net/" target="_blank" rel="noopener">JusticeNet – Sliding Scale Legal Help</a></li>
+          <li><a href="https://www.archdisabilitylaw.ca/" target="_blank" rel="noopener">ARCH – Disability Law Centre</a></li>
+          <li><a href="https://lawfacts.ca/" target="_blank" rel="noopener">LawFacts – Ontario Legal Info</a></li>
+        </ul>
+      </article>
+
+      <article id="mental" class="card">
+        <h2>🧬 Mental Health & Addiction</h2>
+        <ul class="list">
+          <li><a href="https://www.connexontario.ca/" target="_blank" rel="noopener">ConnexOntario – Mental Health & Addictions</a></li>
+          <li><a href="https://kidshelpphone.ca/" target="_blank" rel="noopener">Kids Help Phone</a></li>
+          <li><a href="https://www.therapytoronto.ca/" target="_blank" rel="noopener">Therapy Toronto – Low-Cost Therapy</a></li>
+          <li><a href="https://www.ymcagta.org/community-support/mental-health-services" target="_blank" rel="noopener">YMCA Mental Health Programs</a></li>
+          <li><a href="https://mentalhealthcommission.ca/" target="_blank" rel="noopener">Mental Health Commission of Canada</a></li>
+        </ul>
+      </article>
+
+      <article id="health" class="card">
+        <h2>🪑 Healthcare & Clinics</h2>
+        <ul class="list">
+          <li><a href="https://www.stmichaelshospital.com/programs/innercity/" target="_blank" rel="noopener">St. Michael’s Inner City Health</a></li>
+          <li><a href="https://www.srchc.ca/" target="_blank" rel="noopener">South Riverdale CHC</a></li>
+          <li><a href="https://www.whiwh.com/" target="_blank" rel="noopener">Women's Health in Women's Hands CHC</a></li>
+          <li><a href="https://accessalliance.ca/" target="_blank" rel="noopener">Access Alliance Multicultural Health</a></li>
+          <li><a href="https://www.ontario.ca/page/apply-ohip" target="_blank" rel="noopener">Apply for OHIP</a></li>
+        </ul>
+      </article>
+
+      <article id="employment" class="card">
+        <h2>💼 Employment & Training</h2>
+        <ul class="list">
+          <li><a href="https://www.metrac.org/programs/employment-training/" target="_blank" rel="noopener">METRAC Employment & Skills</a></li>
+          <li><a href="https://opportunitiesforyouth.ca/" target="_blank" rel="noopener">Opportunities for Youth</a></li>
+          <li><a href="https://careerserviceshrdc.com/" target="_blank" rel="noopener">Career Services Ontario</a></li>
+          <li><a href="https://next-steponline.ca/" target="_blank" rel="noopener">Next Step – Job & Life Skills</a></li>
+          <li><a href="https://www.ywcatoronto.org/ourprograms/employmentandtraining" target="_blank" rel="noopener">YWCA Employment Services</a></li>
+        </ul>
+      </article>
+
+      <article id="immigration" class="card">
+        <h2>📄 Immigration & Identification</h2>
+        <ul class="list">
+          <li><a href="https://settlement.org/" target="_blank" rel="noopener">Settlement.org – ID, OHIP, Immigration</a></li>
+          <li><a href="https://www.cic.gc.ca/" target="_blank" rel="noopener">IRCC – Immigration Canada</a></li>
+          <li><a href="https://ocasi.org/" target="_blank" rel="noopener">OCASI – Ontario Council of Agencies Serving Immigrants</a></li>
+          <li><a href="https://www.accesemployment.ca/" target="_blank" rel="noopener">ACCES Employment for Newcomers</a></li>
+          <li><a href="https://www.legalline.ca/legal-answers/id-and-birth-certificate-ontario/" target="_blank" rel="noopener">Get ID & Birth Certificate</a></li>
+        </ul>
+      </article>
+
+      <article id="women" class="card">
+        <h2>👩 Women’s Support</h2>
+        <ul class="list">
+          <li><a href="https://www.awhl.org/" target="_blank" rel="noopener">Assaulted Women’s Helpline</a></li>
+          <li><a href="https://www.ywcatoronto.org/" target="_blank" rel="noopener">YWCA Toronto</a></li>
+          <li><a href="https://www.intervalhouse.ca/" target="_blank" rel="noopener">Interval House</a></li>
+          <li><a href="https://www.nellies.org/" target="_blank" rel="noopener">Nellie’s Shelter</a></li>
+          <li><a href="https://www.elizabethfrytoronto.org/" target="_blank" rel="noopener">Elizabeth Fry Society</a></li>
+        </ul>
+      </article>
+
+      <article id="lgbtq" class="card">
+        <h2>🌈 LGBTQ+ Support</h2>
+        <ul class="list">
+          <li><a href="https://www.the519.org/" target="_blank" rel="noopener">The 519 Community Centre</a></li>
+          <li><a href="https://sherbourne.on.ca/" target="_blank" rel="noopener">Sherbourne Health – LGBTQ+ Programs</a></li>
+          <li><a href="https://rainbowhealthontario.ca/" target="_blank" rel="noopener">Rainbow Health Ontario</a></li>
+          <li><a href="https://www.egale.ca/" target="_blank" rel="noopener">Egale Canada</a></li>
+          <li><a href="https://www.queerontario.org/resources/" target="_blank" rel="noopener">Queer Ontario Resources</a></li>
+        </ul>
+      </article>
+
+      <article id="youth" class="card">
+        <h2>👩‍💼 Youth Programs</h2>
+        <ul class="list">
+          <li><a href="https://youthrex.hub.youthpolicy.org/" target="_blank" rel="noopener">YouthREX Program Database</a></li>
+          <li><a href="https://www.tdsb.on.ca/About-Us/Innovation/Youth-Hubs" target="_blank" rel="noopener">TDSB Youth Hubs</a></li>
+          <li><a href="https://www.torontopubliclibrary.ca/programs/teens/" target="_blank" rel="noopener">Toronto Library Youth Programs</a></li>
+          <li><a href="https://www.toronto.ca/community-people/youth/" target="_blank" rel="noopener">City of Toronto Youth Services</a></li>
+          <li><a href="https://www.successbc.ca/eng/" target="_blank" rel="noopener">SUCCESS Youth Mentorship</a></li>
+        </ul>
+      </article>
     </section>
   </main>
 
