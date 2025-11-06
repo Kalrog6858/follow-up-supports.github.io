@@ -127,10 +127,13 @@
       margin-top:8px;
       transition: all 0.3s ease;
     }
+    .btn:hover{ filter:brightness(1.1); transform:scale(1.05); }
 
-    .btn:hover{
-      filter:brightness(1.1);
-      transform:scale(1.05);
+    /* Center the CTA */
+    .center-btn{
+      display:flex;
+      justify-content:center;
+      margin-top:25px;
     }
 
     /* Two-column layout */
@@ -215,7 +218,12 @@
         This website was created to support youth who are transitioning out of shelters or care.
         We’ve gathered key resources and mapped out important services across Ontario to help you succeed.
       </p>
-      <a class="btn" href="https://www.google.com/maps/d/u/0/edit?mid=1PSAwJ99JycTMqmWT5Z0VraMA7icYHJU&usp=sharing" target="_blank" rel="noopener">View Community Map</a>
+      <!-- Centered CTA -->
+      <div class="center-btn">
+        <a class="btn" href="https://www.google.com/maps/d/u/0/edit?mid=1PSAwJ99JycTMqmWT5Z0VraMA7icYHJU&usp=sharing" target="_blank" rel="noopener">
+          View Community Map
+        </a>
+      </div>
     </section>
 
     <section class="band">
