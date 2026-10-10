@@ -1,154 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Us | Follow-Up Supports</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --brand:#0d47a1; --brand-2:#0f59c7;
-      --bg:#f5f7fb; --text:#1f2937; --muted:#667085;
-      --card:#ffffff; --border:#e9edf3; --ring:rgba(13,71,161,.12);
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:var(--bg);color:var(--text);line-height:1.7;
-      animation:fadeInBody .7s ease;
-    }
-    @keyframes fadeInBody{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-    header.hero{
-      color:#fff;text-align:center;padding:56px 20px 40px;
-      background:radial-gradient(1100px 520px at 10% 0%,#1a6de0 0%,var(--brand) 40%,#0c3b86 100%);
-      box-shadow:0 10px 28px var(--ring);animation:fadeInHero .8s ease;
-    }
-    @keyframes fadeInHero{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-    .hero h1{margin:0 0 6px;font-weight:800;font-size:clamp(1.8rem,3vw,2.4rem)}
-    .hero p{margin:0;opacity:.95}
-
-    nav.primary{
-      display:flex;flex-wrap:wrap;gap:8px;justify-content:center;
-      background:#fff;border-bottom:1px solid var(--border);
-      padding:10px;box-shadow:0 10px 28px var(--ring);position:sticky;top:0;z-index:20;
-      animation:fadeInNav .9s ease;
-    }
-    nav.primary a{
-      text-decoration:none;color:var(--brand);font-weight:600;
-      padding:8px 12px;border-radius:8px;transition:.25s;
-    }
-    nav.primary a:hover{background:#eef5ff;transform:scale(1.04)}
-
-    .container{max-width:1100px;margin:40px auto 64px;padding:0 20px}
-    .card{
-      background:#fff;border:1px solid var(--border);border-radius:16px;
-      box-shadow:0 14px 36px var(--ring);padding:28px;margin-bottom:24px;
-      animation:fadeInCard .6s ease forwards;opacity:0;
-    }
-    @keyframes fadeInCard{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-    h2{margin:0 0 10px;font-size:1.35rem;color:var(--brand)}
-    h3{margin-top:20px;color:var(--brand-2)}
-    p{margin-top:0}
-    ul{margin-top:8px;padding-left:20px}
-    li{margin-bottom:8px}
-    footer{text-align:center;color:#98a2b3;font-size:.9rem;margin:36px 0 44px}
-
-    .float-top{
-      position:fixed;right:16px;bottom:18px;width:48px;height:48px;border-radius:999px;
-      background:var(--brand);color:#fff;text-decoration:none;font-weight:800;
-      display:flex;align-items:center;justify-content:center;
-      box-shadow:0 10px 26px rgba(13,71,161,.35);
-      border:1px solid rgba(255,255,255,.25);
-      transition:transform .2s ease,filter .2s ease;z-index:50;
-    }
-    .float-top:hover{transform:translateY(-3px) scale(1.03);filter:brightness(1.05)}
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Youth Resource Centre</title>
+  <meta name="description" content="What the Youth Resource Centre is, who it's for, and how resources are chosen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <header class="hero" id="top">
-    <h1>About Follow-Up Supports</h1>
-    <p>Empowering youth toward stability, independence, and growth</p>
+  <!-- ============ HEADER (same on every page) ============ -->
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="index.html">
+        <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M12 17.5s-3-1.8-3-3.8a1.6 1.6 0 0 1 3-.8 1.6 1.6 0 0 1 3 .8c0 2-3 3.8-3 3.8z" fill="#fff" stroke="none"/></svg></span>
+        Youth Resource Centre
+      </a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="resources.html">Resources</a>
+        <a href="transition-resources.html">Transition Help</a>
+        <a href="https://www.google.com/maps/d/u/0/edit?mid=1PSAwJ99JycTMqmWT5Z0VraMA7icYHJU&usp=sharing" target="_blank" rel="noopener">Map</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-help">Get Help</a>
+      </nav>
+    </div>
   </header>
 
-  <nav class="primary" aria-label="Primary">
-    <a href="index.html">Home</a>
-    <a href="resources.html">General Resources</a>
-    <a href="transition-resources.html">Transition Help</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <main class="container">
-    <div class="card">
-      <h2>Our Mission</h2>
-      <p>Since 1982, <strong>Covenant House Toronto</strong> has been a beacon of hope for homeless and at-risk youth. As Canada’s largest agency serving young people facing homelessness and human trafficking, we provide shelter, education, employment, and healthcare services grounded in compassion, dignity, and respect.</p>
-      <p>The <strong>Follow-Up Supports Program</strong> continues this mission by helping youth transition from homelessness into safe, stable, and independent living. We walk alongside youth after they leave the shelter system to ensure long-term success, inclusion, and community belonging.</p>
+  <!-- ============ HERO ============ -->
+  <section class="hero compact">
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+    <div class="hero-inner">
+      <span class="eyebrow"><span class="dot"></span>About</span>
+      <h1>Built so no young person <span class="grad-text">has to search alone.</span></h1>
+      <p class="lead">Empowering youth toward stability, independence, and growth.</p>
     </div>
+  </section>
 
-    <div class="card">
-      <h2>Who We Support</h2>
-      <ul>
-        <li>Youth aged <strong>16–24</strong> who have exited homelessness</li>
-        <li>Unaccompanied by a parent or parenting a dependent over 16</li>
-        <li>Experienced <strong>3+ months</strong> of homelessness in the past year (or 18+ months in 3 years)</li>
-        <li>Secured housing through <strong>RGI, COHB, private market, or VYSA</strong> programs</li>
-        <li>Prioritizing <strong>equity, safety, and long-term housing stability</strong></li>
-      </ul>
-    </div>
+  <main id="main">
+    <section class="section">
+      <div class="container two-col">
+        <div class="reveal">
+          <span class="kicker">What this is</span>
+          <h2 style="font-size:clamp(1.6rem,3vw,2.2rem)">A free, simple guide to youth services</h2>
+          <p class="muted" style="font-size:1.06rem">
+            The Youth Resource Centre is a free online guide for youth and the workers who support them.
+            It brings together trusted housing, food, health, mental health, legal, and employment services
+            in Toronto and across Ontario, so finding help takes seconds instead of hours.
+          </p>
+          <p class="muted" style="font-size:1.06rem">
+            It’s especially for young people moving out of shelters or care and into their own place,
+            a time when knowing where to turn makes all the difference.
+          </p>
+        </div>
+        <aside class="feature reveal">
+          <h3>Who it’s for</h3>
+          <ul class="checks">
+            <li>Youth aged 16–24</li>
+            <li>Young people leaving shelter, care, or unstable housing</li>
+            <li>Shelter, outreach, and housing staff looking for referrals</li>
+            <li>Anyone who needs free support in Ontario</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
 
-    <div class="card">
-      <h2>Our Approach</h2>
-      <p>Our supports are <strong>person-centered</strong> and <strong>client-driven</strong>. We use trauma-informed and strengths-based practices that meet each youth where they are—focusing on their goals, capacity, and safety.</p>
-      <ul>
-        <li>Active listening and motivational interviewing to build independence</li>
-        <li>Housing stabilization and consistency planning</li>
-        <li>Life skills development—cooking, budgeting, grocery shopping, cleaning, time management</li>
-        <li>Connection to education, employment, and legal supports</li>
-        <li>Support with OW, ODSP, OSAP, and scholarship applications</li>
-        <li>Advocacy with landlords and tenant coordinators</li>
-      </ul>
-    </div>
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="grid">
+          <div class="card reveal">
+            <div class="icon c-blue">🔎</div>
+            <h3 style="margin-top:14px">How resources are chosen</h3>
+            <p class="muted" style="margin:0">Every listing links to an official public service or established community organization. Most are free and open to all.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon c-violet">🤝</div>
+            <h3 style="margin-top:14px">Our approach</h3>
+            <p class="muted" style="margin:0">Person-centred, trauma-informed, and strengths-based: meeting each youth where they are and focusing on their goals and safety.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon c-coral">🔄</div>
+            <h3 style="margin-top:14px">Always changing</h3>
+            <p class="muted" style="margin:0">Programs open, close, and move. We update this site as things change, but please call ahead before visiting.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="card">
-      <h2>Beyond Basic Supports</h2>
-      <p>We go beyond traditional case management by offering unique, complementary supports that recognize the full humanity of every youth we serve:</p>
-      <ul>
-        <li><strong>Animal Angel Care:</strong> creating keepsakes for youth with pets</li>
-        <li><strong>Crisis relocation:</strong> assisting young parents and families during pest treatment or unsafe situations</li>
-        <li><strong>Legal & institutional advocacy:</strong> attending hearings, visiting incarcerated youth, and connecting them to reentry supports</li>
-        <li><strong>Hospital advocacy:</strong> bridging communication between youth and health care providers</li>
-        <li><strong>Gang-involvement support:</strong> using a safety-first, non-judgmental approach</li>
-        <li><strong>Community connection:</strong> encouraging youth to engage in recreation, art, and wellness activities such as yoga, swimming, and pottery</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Program Impact</h2>
-      <ul>
-        <li>Youth completing high school, college, and university programs</li>
-        <li>Successful job retention and career advancement</li>
-        <li>Improved access to mental health supports—therapy, psychiatry, and counselling</li>
-        <li>Rebuilding family connections and social relationships</li>
-        <li>Growth in self-confidence, resilience, and community engagement</li>
-        <li>Long-term housing stability and independence</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Our Philosophy</h2>
-      <p>Every young person has the right to safety, dignity, and opportunity. Our team believes that healing and growth happen through relationships built on trust and consistency. We see each youth as the expert in their own story, and our role is to support them in writing their next chapter.</p>
-    </div>
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="feature reveal" style="text-align:center;padding:48px 28px">
+          <span class="kicker" style="background:linear-gradient(100deg,#a5b4fc,#e9a8ff,#ffa3a3);-webkit-background-clip:text;background-clip:text">Our philosophy</span>
+          <p style="font-size:clamp(1.1rem,2.2vw,1.4rem);max-width:60ch;margin:0 auto;color:#fff;line-height:1.6">
+            Every young person has the right to safety, dignity, and opportunity. Healing and growth happen
+            through relationships built on trust and consistency. Each youth is the expert in their own story,
+            and our role is to support them in writing their next chapter.
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    &copy; 2025 Follow-Up Supports | Covenant House Toronto | Created by Kaleab Alemseged
+  <!-- ============ FOOTER (same on every page) ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="index.html"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></span>Youth Resource Centre</a>
+          <p style="max-width:34ch;margin:0">Free resources for youth in Toronto and across Ontario.</p>
+        </div>
+        <nav aria-label="Footer">
+          <a href="resources.html">Resources</a>
+          <a href="transition-resources.html">Transition Help</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Get Help</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Youth Resource Centre · Created by Kaleab Alemseged</span>
+        <span>Programs change. Please call ahead. In an emergency, call 911.</span>
+      </div>
+    </div>
   </footer>
 
-  <!-- Floating back-to-top button -->
-  <a href="#top" class="float-top" aria-label="Back to top">↑</a>
-
+  <script src="js/site.js"></script>
 </body>
 </html>

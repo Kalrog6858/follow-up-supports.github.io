@@ -1,228 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Us | Follow-Up Supports</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --brand:#0d47a1; --brand-2:#0f59c7;
-      --bg:#f5f7fb; --text:#1f2937; --muted:#667085;
-      --card:#ffffff; --border:#e9edf3; --ring:rgba(13,71,161,.12);
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:var(--bg); color:var(--text); line-height:1.6;
-      animation:fadeInBody .7s ease;
-    }
-    @keyframes fadeInBody{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-    /* Hero */
-    header.hero{
-      color:#fff; text-align:center; padding:56px 20px 40px;
-      background:radial-gradient(1100px 520px at 10% 0%, #1a6de0 0%, var(--brand) 40%, #0c3b86 100%);
-      box-shadow:0 10px 28px var(--ring); animation:fadeInHero .8s ease;
-    }
-    @keyframes fadeInHero{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-    .hero h1{margin:0 0 6px; font-weight:800; font-size:clamp(1.8rem,3vw,2.4rem)}
-    .hero p{margin:0; opacity:.95}
-
-    /* Primary nav */
-    nav.primary{
-      position:sticky; top:0; z-index:20;
-      display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
-      background:#fff; border-bottom:1px solid var(--border);
-      padding:10px; box-shadow:0 10px 28px var(--ring); animation:fadeInNav .9s ease;
-    }
-    @keyframes fadeInNav{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
-    nav.primary a{
-      text-decoration:none; color:var(--brand); font-weight:600;
-      padding:8px 12px; border-radius:8px; white-space:nowrap; transition:.25s;
-    }
-    nav.primary a:hover{background:#eef5ff; transform:scale(1.04)}
-
-    /* Container & cards */
-    .container{max-width:1100px; margin:28px auto 64px; padding:0 20px}
-    .stack{display:grid; gap:18px}
-
-    .panel, .card{
-      background:#fff; border:1px solid var(--border); border-radius:16px;
-      box-shadow:0 14px 36px var(--ring); padding:22px;
-      animation:fadeInCard .6s ease forwards; opacity:0;
-    }
-    @keyframes fadeInCard{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-    h2{margin:0 0 8px; font-size:1.28rem; color:#0d47a1}
-    .muted{color:var(--muted)}
-    .badge{display:inline-block;background:#eef5ff;color:var(--brand);padding:6px 10px;border-radius:999px;font-weight:700;font-size:.85rem;margin-bottom:10px}
-
-    /* Contact rows */
-    .contact-list{margin-top:6px}
-    .row{display:flex;gap:12px;padding:12px 0;border-bottom:1px dashed #eceff3}
-    .row:last-child{border-bottom:none}
-    .label{min-width:80px;font-weight:700;color:var(--brand)}
-    .link{color:var(--brand);text-decoration:none}
-    .link:hover{text-decoration:underline}
-
-    /* Quick action buttons */
-    .actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px}
-    .btn{
-      display:inline-block; background:var(--brand); color:#fff; text-decoration:none;
-      font-weight:700; padding:10px 14px; border-radius:12px;
-      border:1px solid rgba(255,255,255,.18);
-      box-shadow:0 8px 22px rgba(13,71,161,.28);
-      transition:.25s;
-    }
-    .btn:hover{filter:brightness(1.08); transform:scale(1.03)}
-    .btn.alt{background:#0f59c7}
-
-    /* Team gallery */
-    .gallery{
-      margin-top:10px; display:grid; gap:18px;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    }
-    .tile{
-      background:#fff; border:1px solid var(--border); border-radius:14px;
-      overflow:hidden; box-shadow:0 10px 28px var(--ring); transition:.25s; display:flex; flex-direction:column;
-    }
-    .tile:hover{transform:translateY(-5px); box-shadow:0 16px 36px rgba(13,71,161,.22)}
-
-    /* Show full image (no crop) */
-    .frame{
-      background:#fff; padding:10px; display:flex; align-items:center; justify-content:center;
-      min-height:260px;
-    }
-    .frame img{
-      max-width:100%; max-height:340px; height:auto; width:auto; object-fit:contain; display:block; border-radius:8px;
-    }
-    .meta{padding:12px; text-align:center}
-    .meta h4{margin:0 0 2px; font-size:1rem; color:var(--brand)}
-    .meta p{margin:0; color:#6b7280; font-size:.9rem}
-
-    /* Floating back-to-top button */
-    .float-top{
-      position: fixed; right:16px; bottom:18px; width:48px; height:48px;
-      border-radius:999px; background:var(--brand); color:#fff; text-decoration:none;
-      font-weight:800; display:flex; align-items:center; justify-content:center;
-      box-shadow:0 10px 26px rgba(13,71,161,.35); border:1px solid rgba(255,255,255,.25);
-      transition: transform .2s ease, filter .2s ease; z-index:50;
-    }
-    .float-top:hover{ transform: translateY(-3px) scale(1.03); filter: brightness(1.05); }
-    @media (max-width:520px){ .float-top{ right:12px; bottom:12px; width:44px; height:44px; } }
-
-    footer{text-align:center; color:#98a2b3; font-size:.9rem; margin:36px 0 44px}
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Help Now | Youth Resource Centre</title>
+  <meta name="description" content="Free, confidential crisis lines and help lines for youth in Toronto and Ontario.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- HERO -->
-  <header class="hero" id="top">
-    <h1>Contact Us</h1>
-    <p>Follow-Up Supports • Covenant House Toronto</p>
+  <!-- ============ HEADER (same on every page) ============ -->
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="index.html">
+        <span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M12 17.5s-3-1.8-3-3.8a1.6 1.6 0 0 1 3-.8 1.6 1.6 0 0 1 3 .8c0 2-3 3.8-3 3.8z" fill="#fff" stroke="none"/></svg></span>
+        Youth Resource Centre
+      </a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+      <nav class="nav-links" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="resources.html">Resources</a>
+        <a href="transition-resources.html">Transition Help</a>
+        <a href="https://www.google.com/maps/d/u/0/edit?mid=1PSAwJ99JycTMqmWT5Z0VraMA7icYHJU&usp=sharing" target="_blank" rel="noopener">Map</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-help">Get Help</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- NAV -->
-  <nav class="primary" aria-label="Primary">
-    <a href="index.html">Home</a>
-    <a href="resources.html">General Resources</a>
-    <a href="transition-resources.html">Transition Help</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <!-- ============ HERO ============ -->
+  <section class="hero compact">
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+    <div class="hero-inner">
+      <span class="eyebrow"><span class="dot"></span>Free · Confidential · Most open 24/7</span>
+      <h1>You don’t have to <span class="grad-text">figure it out alone.</span></h1>
+      <p class="lead">Talk to someone right now. On a phone, tap any number to call.</p>
+    </div>
+  </section>
 
-  <main class="container">
-    <section class="stack">
+  <main id="main" class="container" style="padding:48px 20px 80px">
 
-      <!-- Contact card -->
-      <article class="panel">
-        <span class="badge">Get in touch</span>
-        <h2>We’re here to support you</h2>
-        <p class="muted" style="margin-top:0">Email us to arrange a meeting or warm referral.</p>
+    <div class="emergency reveal">
+      <div>
+        <h2>In danger right now?</h2>
+        <p>If you or someone else is at immediate risk, call emergency services.</p>
+      </div>
+      <a class="btn" href="tel:911">📞 Call 911</a>
+    </div>
 
-        <div class="contact-list">
-          <div class="row">
-            <div class="label">Email</div>
-            <div><a class="link" href="mailto:followupsupports@covenanthouse.ca">followupsupports@covenanthouse.ca</a></div>
-          </div>
-          <div class="row">
-            <div class="label">Visit</div>
-            <div>
-              Covenant House Toronto<br>
-              20 Gerrard St. E, Toronto, ON<br>
-              <a class="link" href="https://maps.google.com/?q=Covenant+House+Toronto+20+Gerrard+St+E" target="_blank" rel="noopener">Open in Google Maps</a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="label">Hours</div>
-            <div>Mon–Fri, 9:00 AM – 5:00 PM (by appointment)</div>
-          </div>
-        </div>
+    <!-- =========================================================
+         TO ADD A HELP LINE: copy one <div class="card helpline">…</div>
+         block and change the name, description and number.
+         The "tel:" link must be digits only (no spaces or dashes).
+         ========================================================= -->
 
-        <div class="actions">
-          <a class="btn" href="mailto:followupsupports@covenanthouse.ca">✉️ Email the team</a>
-          <a class="btn alt" href="resources.html">🔎 Browse resources</a>
-        </div>
-      </article>
+    <div class="section-head" style="margin:56px 0 24px">
+      <span class="kicker">Talk to someone</span>
+      <h2>Crisis &amp; support lines</h2>
+    </div>
+    <div class="grid">
+      <div class="card helpline reveal">
+        <span class="who">988 Suicide Crisis Helpline</span>
+        <span class="what">For anyone thinking about suicide, or worried about someone. 24/7, call or text.</span>
+        <a class="num" href="tel:988">📞 988</a>
+      </div>
+      <div class="card helpline reveal">
+        <span class="who">Kids Help Phone</span>
+        <span class="what">Free counselling for young people, any time. Or text CONNECT to 686868.</span>
+        <a class="num" href="tel:18006686868">📞 1-800-668-6868</a>
+      </div>
+      <div class="card helpline reveal">
+        <span class="who">Gerstein Crisis Centre</span>
+        <span class="what">24/7 mental health crisis line for adults (16+) in Toronto.</span>
+        <a class="num" href="tel:4169295200">📞 416-929-5200</a>
+      </div>
+      <div class="card helpline reveal">
+        <span class="who">Distress Centres of Greater Toronto</span>
+        <span class="what">24/7 emotional support, crisis and suicide prevention.</span>
+        <a class="num" href="tel:4164084357">📞 416-408-4357</a>
+      </div>
+      <div class="card helpline reveal">
+        <span class="who">Hope for Wellness</span>
+        <span class="what">24/7 counselling and crisis support for Indigenous people.</span>
+        <a class="num" href="tel:18552423310">📞 1-855-242-3310</a>
+      </div>
+      <div class="card helpline reveal">
+        <span class="who">Assaulted Women’s Helpline</span>
+        <span class="what">24/7 support for women experiencing abuse.</span>
+        <a class="num" href="tel:18668630511">📞 1-866-863-0511</a>
+      </div>
+      <div class="card helpline reveal">
+        <span class="who">Trans Lifeline</span>
+        <span class="what">Peer support run by and for trans people.</span>
+        <a class="num" href="tel:18773306366">📞 1-877-330-6366</a>
+      </div>
+      <div class="card helpline reveal">
+        <span class="who">LGBT YouthLine</span>
+        <span class="what">Text-based peer support for 2SLGBTQ+ youth in Ontario.</span>
+        <a class="num" href="sms:6476944275">💬 Text 647-694-4275</a>
+      </div>
+    </div>
 
-      <!-- Team gallery (web3 = Supervisor) -->
-      <article class="card">
-        <h2>Meet the Team</h2>
-        <div class="gallery">
-          <div class="tile">
-            <div class="frame">
-              <img src="images/web3.jpg" alt="Supervisor portrait">
-            </div>
-            <div class="meta"><h4>Supervisor</h4><p>Program Lead</p></div>
-          </div>
+    <div class="section-head" style="margin:56px 0 24px">
+      <span class="kicker">Practical help</span>
+      <h2>Find a bed, a service, or a program</h2>
+    </div>
+    <div class="grid">
+      <div class="card helpline reveal">
+        <span class="who">Toronto Shelter Central Intake</span>
+        <span class="what">24/7. Find an emergency shelter bed in Toronto.</span>
+        <a class="num" href="tel:4163384766">📞 416-338-4766</a>
+      </div>
+      <div class="card helpline reveal">
+        <span class="who">211 Ontario</span>
+        <span class="what">24/7 help finding any community, social or government service in Ontario.</span>
+        <a class="num" href="tel:211">📞 211</a>
+      </div>
+      <div class="card helpline reveal">
+        <span class="who">ConnexOntario</span>
+        <span class="what">24/7 help finding mental health, addiction and gambling services.</span>
+        <a class="num" href="tel:18665312600">📞 1-866-531-2600</a>
+      </div>
+      <div class="card helpline reveal">
+        <span class="who">Toronto Police (non-emergency)</span>
+        <span class="what">To report something that isn’t an emergency.</span>
+        <a class="num" href="tel:4168082222">📞 416-808-2222</a>
+      </div>
+    </div>
 
-          <div class="tile">
-            <div class="frame">
-              <img src="images/web1.jpg" alt="Follow-Up Support Worker portrait 1">
-            </div>
-            <div class="meta"><h4>Follow-Up Support Worker</h4><p>Team Member</p></div>
-          </div>
-
-          <div class="tile">
-            <div class="frame">
-              <img src="images/web2.jpg" alt="Follow-Up Support Worker portrait 2">
-            </div>
-            <div class="meta"><h4>Follow-Up Support Worker</h4><p>Team Member</p></div>
-          </div>
-
-          <div class="tile">
-            <div class="frame">
-              <img src="images/web4.jpg" alt="Follow-Up Support Worker portrait 3">
-            </div>
-            <div class="meta"><h4>Follow-Up Support Worker</h4><p>Team Member</p></div>
-          </div>
-
-           <div class="tile">
-            <div class="frame">
-              <img src="images/web6.jpg" alt="Follow-Up Support Worker portrait 3">
-            </div>
-            <div class="meta"><h4>Follow-Up Support Worker</h4><p>Team Member</p></div>
-          </div>
-          
-          <div class="tile">
-            <div class="frame">
-              <img src="images/web5.jpg" alt="Follow-Up Support Worker portrait 3">
-            </div>
-            <div class="meta"><h4>Follow-Up Support Worker</h4><p>Team Member</p></div>
-          </div>
-        </div>
-      </article>
-
-    </section>
+    <p class="note" style="margin-top:32px">Numbers can change. If a line doesn’t work, call <a href="tel:211">211</a> and they’ll connect you. Prefer browsing? <a href="resources.html">See all resources →</a></p>
   </main>
 
-  <footer>
-    &copy; 2025 Follow-Up Supports • Contact Team
+  <!-- ============ FOOTER (same on every page) ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="index.html"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></span>Youth Resource Centre</a>
+          <p style="max-width:34ch;margin:0">Free resources for youth in Toronto and across Ontario.</p>
+        </div>
+        <nav aria-label="Footer">
+          <a href="resources.html">Resources</a>
+          <a href="transition-resources.html">Transition Help</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Get Help</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Youth Resource Centre · Created by Kaleab Alemseged</span>
+        <span>Programs change. Please call ahead. In an emergency, call 911.</span>
+      </div>
+    </div>
   </footer>
 
-  <!-- Floating back-to-top button -->
-  <a href="#top" class="float-top" aria-label="Back to top">↑</a>
-
+  <script src="js/site.js"></script>
 </body>
 </html>

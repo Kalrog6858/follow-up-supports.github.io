@@ -1,0 +1,428 @@
+/* =====================================================================
+   YOUTH RESOURCE CENTRE — shared stylesheet
+   ---------------------------------------------------------------------
+   Every page links to this one file, so changing a colour or font here
+   changes it across the whole site.
+
+   HOW IT'S ORGANIZED (top to bottom):
+     1. Design tokens  – colours, fonts, sizes (edit these first!)
+     2. Base           – page defaults
+     3. Header & nav   – the bar at the top of every page
+     4. Hero           – the big colourful banner
+     5. Layout helpers – containers, sections, grids
+     6. Components     – cards, buttons, chips, resource lists
+     7. Footer
+     8. Animations
+   ===================================================================== */
+
+
+/* 1. DESIGN TOKENS ---------------------------------------------------
+   "Variables" you can reuse anywhere with var(--name).
+   Want a different main colour? Change --indigo and --violet. */
+:root{
+  /* Brand colours */
+  --ink:      #0b1026;   /* near-black navy: hero background, headings */
+  --indigo:   #5b5bf7;   /* main brand colour: links, buttons */
+  --violet:   #a855f7;
+  --coral:    #ff6b6b;   /* warm accent / "get help" */
+  --sky:      #38bdf8;
+
+  /* Neutrals */
+  --bg:       #f6f7fb;   /* page background */
+  --surface:  #ffffff;   /* cards */
+  --text:     #1e2235;
+  --muted:    #626a85;
+  --line:     #e6e8f0;   /* borders */
+
+  /* One gradient reused for buttons, logo, highlights */
+  --grad: linear-gradient(120deg, var(--indigo), var(--violet) 55%, var(--coral));
+
+  /* Fonts (loaded from Google Fonts in each page's <head>) */
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body:    "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Shape & depth */
+  --radius:    18px;
+  --radius-sm: 12px;
+  --shadow:    0 1px 2px rgba(15,20,50,.04), 0 10px 30px rgba(30,35,90,.07);
+  --shadow-lg: 0 2px 4px rgba(15,20,50,.05), 0 24px 50px rgba(60,50,160,.16);
+
+  --max: 1180px;          /* widest the content gets on big screens */
+}
+
+
+/* 2. BASE ------------------------------------------------------------ */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; scroll-padding-top:90px; }
+body{
+  margin:0;
+  font-family:var(--font-body);
+  font-size:16.5px;
+  line-height:1.65;
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{ font-family:var(--font-display); color:var(--ink); line-height:1.15; margin:0 0 .5em; letter-spacing:-.02em; }
+p{ margin:0 0 1em; }
+a{ color:var(--indigo); }
+img{ max-width:100%; display:block; }
+
+/* Visible outline for keyboard users */
+:focus-visible{ outline:3px solid var(--violet); outline-offset:3px; border-radius:6px; }
+
+/* "Skip to content" link, only visible when tabbing with a keyboard */
+.skip{ position:absolute; left:-999px; top:8px; background:#fff; padding:8px 14px; border-radius:8px; z-index:100; }
+.skip:focus{ left:8px; }
+
+
+/* 3. HEADER & NAV ---------------------------------------------------
+   Sticky "frosted glass" bar. On phones the links fold into a menu
+   that opens with the ☰ button (see js/site.js). */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(11,16,38,.78);
+  backdrop-filter:saturate(160%) blur(14px);
+  -webkit-backdrop-filter:saturate(160%) blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.nav-wrap{
+  max-width:var(--max); margin:0 auto; padding:12px 20px;
+  display:flex; align-items:center; gap:16px;
+}
+.logo{
+  display:flex; align-items:center; gap:10px;
+  color:#fff; text-decoration:none;
+  font-family:var(--font-display); font-weight:700; font-size:1.12rem; letter-spacing:-.01em;
+  margin-right:auto;
+}
+.logo{ white-space:nowrap; }
+@media (max-width:520px){
+  .logo{ font-size:1rem; }
+  .hero{ padding-top:130px; padding-bottom:80px; }
+  .hero.compact{ padding-top:120px; padding-bottom:56px; }
+  .section{ padding:56px 0; }
+}
+.logo-mark{
+  width:36px; height:36px; border-radius:11px;
+  background:var(--grad);
+  display:grid; place-items:center;
+  box-shadow:0 6px 18px rgba(168,85,247,.45);
+}
+.logo-mark svg{ width:20px; height:20px; }
+
+.nav-links{ display:flex; align-items:center; gap:4px; }
+.nav-links a{
+  color:rgba(255,255,255,.78); text-decoration:none;
+  font-weight:600; font-size:.95rem;
+  padding:8px 13px; border-radius:999px;
+  transition:background .2s, color .2s;
+}
+.nav-links a:hover{ color:#fff; background:rgba(255,255,255,.1); }
+.nav-links a.active{ color:#fff; background:rgba(255,255,255,.14); }
+.nav-links a.nav-help{ background:var(--coral); color:#fff; margin-left:6px; }
+.nav-links a.nav-help:hover{ filter:brightness(1.08); }
+
+.menu-btn{
+  display:none;
+  background:rgba(255,255,255,.1); color:#fff; border:0;
+  width:42px; height:42px; border-radius:12px; font-size:1.3rem; cursor:pointer;
+}
+
+@media (max-width:860px){
+  .menu-btn{ display:grid; place-items:center; }
+  .nav-links{
+    position:absolute; left:12px; right:12px; top:calc(100% + 8px);
+    flex-direction:column; align-items:stretch; gap:2px;
+    background:var(--ink); border:1px solid rgba(255,255,255,.1);
+    border-radius:var(--radius); padding:10px;
+    box-shadow:var(--shadow-lg);
+    display:none;
+  }
+  .nav-links.open{ display:flex; animation:drop .2s ease; }
+  .nav-links a{ padding:12px 14px; border-radius:12px; }
+  .nav-links a.nav-help{ margin:6px 0 0; text-align:center; }
+}
+
+
+/* 4. HERO ------------------------------------------------------------
+   Dark banner with soft glowing colour "blobs" drifting behind it. */
+.hero{
+  position:relative; overflow:hidden; isolation:isolate;
+  background:var(--ink); color:#fff;
+  padding:96px 20px 110px;
+  margin-top:-69px; padding-top:165px; /* slide under the glass header */
+}
+.hero.compact{ padding-bottom:70px; padding-top:140px; }
+.hero::after{ /* faint grid texture */
+  content:""; position:absolute; inset:0; z-index:-1;
+  background-image:linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+                   linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size:44px 44px;
+  mask-image:radial-gradient(ellipse at 50% 30%, #000 30%, transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse at 50% 30%, #000 30%, transparent 75%);
+}
+.blob{
+  position:absolute; z-index:-2; border-radius:50%;
+  filter:blur(70px); opacity:.55;
+  animation:float 18s ease-in-out infinite alternate;
+}
+.blob.b1{ width:520px; height:520px; background:var(--indigo); top:-160px; left:-120px; }
+.blob.b2{ width:420px; height:420px; background:var(--violet); top:40px; right:-120px; animation-delay:-6s; }
+.blob.b3{ width:360px; height:360px; background:var(--coral);  bottom:-200px; left:38%; opacity:.4; animation-delay:-12s; }
+
+.hero-inner{ max-width:var(--max); margin:0 auto; text-align:center; }
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:.85rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+  color:#d9d6ff; background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+  padding:6px 14px; border-radius:999px; margin-bottom:22px;
+}
+.eyebrow .dot{ width:8px; height:8px; border-radius:50%; background:#7cf3c9; box-shadow:0 0 12px #7cf3c9; }
+.hero h1{
+  color:#fff; font-weight:800;
+  font-size:clamp(2.3rem, 6vw, 4.4rem);
+  max-width:15ch; margin:0 auto .35em;
+}
+.hero.compact h1{ font-size:clamp(2rem, 4.6vw, 3.2rem); max-width:20ch; }
+.grad-text{
+  background:linear-gradient(100deg, #a5b4fc, #e9a8ff 50%, #ffa3a3);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.hero .lead{
+  font-size:clamp(1.05rem, 2vw, 1.25rem);
+  color:rgba(255,255,255,.75);
+  max-width:58ch; margin:0 auto 32px;
+}
+.hero-actions{ display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+
+/* Quick-jump chips under the hero buttons */
+.quick{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:34px; }
+.quick a{
+  color:#fff; text-decoration:none; font-weight:600; font-size:.92rem;
+  padding:8px 14px; border-radius:999px;
+  background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.13);
+  transition:transform .2s, background .2s;
+}
+.quick a:hover{ background:rgba(255,255,255,.15); transform:translateY(-2px); }
+
+/* Crisis bar */
+.crisis{
+  background:linear-gradient(90deg, #2a1240, #401a3a);
+  color:#ffe1e1; font-size:.93rem; text-align:center;
+  padding:11px 20px;
+}
+.crisis a{ color:#fff; font-weight:700; }
+
+
+/* 5. LAYOUT HELPERS -------------------------------------------------- */
+.container{ max-width:var(--max); margin:0 auto; padding:0 20px; }
+.section{ padding:72px 0; }
+.section.tight{ padding:48px 0; }
+.section-head{ max-width:640px; margin-bottom:34px; }
+.section-head.center{ margin-inline:auto; text-align:center; }
+.section-head h2{ font-size:clamp(1.7rem, 3.4vw, 2.5rem); }
+.section-head p{ color:var(--muted); font-size:1.06rem; }
+.kicker{
+  display:inline-block; font-weight:700; font-size:.8rem; letter-spacing:.08em; text-transform:uppercase;
+  background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+  margin-bottom:10px;
+}
+.grid{ display:grid; gap:20px; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); }
+.two-col{ display:grid; gap:24px; grid-template-columns:1fr; }
+@media (min-width:900px){ .two-col{ grid-template-columns:1.25fr .75fr; } }
+
+/* Pages with a sticky side menu (Resources, Transition Help) */
+.with-side{ display:grid; gap:28px; grid-template-columns:1fr; padding:48px 0 80px; }
+@media (min-width:1000px){ .with-side{ grid-template-columns:260px 1fr; } }
+/* Let grid columns shrink; otherwise the scrolling chip row stretches the page sideways on phones */
+.with-side > *{ min-width:0; }
+
+
+/* 6. COMPONENTS ------------------------------------------------------ */
+
+/* Buttons */
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:inherit; font-weight:700; font-size:1rem;
+  padding:14px 24px; border-radius:999px; border:0; cursor:pointer;
+  text-decoration:none; transition:transform .2s, box-shadow .2s, background .2s;
+}
+.btn-primary{ background:var(--grad); background-size:150% 100%; color:#fff; box-shadow:0 10px 28px rgba(124,77,255,.4); }
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 36px rgba(124,77,255,.5); background-position:100% 0; }
+.btn-ghost{ background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.2); }
+.btn-ghost:hover{ background:rgba(255,255,255,.16); transform:translateY(-2px); }
+.btn-dark{ background:var(--ink); color:#fff; }
+.btn-dark:hover{ transform:translateY(-2px); box-shadow:var(--shadow-lg); }
+
+/* Cards */
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+.card h2{ font-size:1.45rem; }
+.card h3{ font-size:1.15rem; }
+.muted{ color:var(--muted); }
+
+/* Category tiles (home page) */
+.tile{
+  position:relative; display:block;
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--radius); padding:24px;
+  text-decoration:none; color:inherit;
+  box-shadow:var(--shadow);
+  transition:transform .25s, box-shadow .25s, border-color .25s;
+}
+.tile:hover{ transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:transparent; }
+.tile h3{ font-size:1.12rem; margin:14px 0 6px; }
+.tile p{ color:var(--muted); font-size:.95rem; margin:0; }
+.tile .arrow{ position:absolute; top:24px; right:22px; color:#b8bdd0; transition:transform .25s, color .25s; }
+.tile:hover .arrow{ transform:translateX(4px); color:var(--indigo); }
+
+/* Coloured icon square. Add a colour class: .c-blue, .c-coral, etc. */
+.icon{
+  width:50px; height:50px; border-radius:14px;
+  display:grid; place-items:center; font-size:1.5rem;
+  background:#eef0ff;
+}
+.c-blue  { background:#e6efff; } .c-coral { background:#ffe8e6; }
+.c-violet{ background:#f1e8ff; } .c-sky   { background:#e1f5ff; }
+.c-pink  { background:#ffe6f3; } .c-amber { background:#fff1dc; }
+.c-teal  { background:#ddf6f6; } .c-slate { background:#ebedf3; }
+
+/* Bullet list with gradient ticks */
+.checks{ list-style:none; padding:0; margin:0 0 1em; }
+.checks li{ position:relative; padding-left:30px; margin:10px 0; }
+.checks li::before{
+  content:"✓"; position:absolute; left:0; top:1px;
+  width:20px; height:20px; border-radius:6px;
+  background:var(--grad); color:#fff; font-size:.75rem; font-weight:800;
+  display:grid; place-items:center;
+}
+
+/* Feature panel (dark card with glow) */
+.feature{
+  position:relative; overflow:hidden;
+  background:var(--ink); color:#fff; border-radius:var(--radius);
+  padding:32px; box-shadow:var(--shadow-lg);
+}
+.feature::before{
+  content:""; position:absolute; width:300px; height:300px; right:-80px; top:-100px;
+  background:var(--violet); filter:blur(80px); opacity:.5; border-radius:50%;
+}
+.feature > *{ position:relative; }
+.feature h2, .feature h3{ color:#fff; }
+.feature p{ color:rgba(255,255,255,.75); }
+
+/* Side menu ("Jump to") — a sticky list on desktop, a scrolling row of chips on phones */
+.side{ position:sticky; top:86px; align-self:start; z-index:5; }
+.side h4{ font-size:.8rem; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); margin:0 0 10px 12px; font-family:var(--font-body); }
+.side nav{ display:flex; flex-direction:column; gap:2px; }
+.side a{
+  display:flex; align-items:center; gap:10px;
+  color:var(--text); text-decoration:none; font-weight:600; font-size:.95rem;
+  padding:9px 12px; border-radius:12px; transition:background .2s, color .2s;
+}
+.side a:hover{ background:#eceefa; }
+.side a.active{ background:var(--surface); color:var(--indigo); box-shadow:var(--shadow); }
+@media (max-width:999px){
+  .side{ top:66px; margin:0 -20px; padding:10px 20px; background:rgba(246,247,251,.92); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); }
+  .side h4{ display:none; }
+  .side nav{ flex-direction:row; overflow-x:auto; gap:8px; scrollbar-width:none; }
+  .side nav::-webkit-scrollbar{ display:none; }
+  .side a{ white-space:nowrap; background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:7px 14px; font-size:.9rem; }
+}
+
+/* Search box (Resources page) */
+.search{
+  display:flex; align-items:center; gap:10px;
+  background:var(--surface); border:1px solid var(--line); border-radius:999px;
+  padding:6px 8px 6px 20px; box-shadow:var(--shadow);
+  margin-bottom:24px;
+}
+.search:focus-within{ border-color:var(--indigo); box-shadow:0 0 0 4px rgba(91,91,247,.14); }
+.search input{ flex:1; border:0; outline:0; font:inherit; font-size:1.02rem; background:transparent; padding:10px 0; min-width:0; }
+.search .count{ font-size:.85rem; color:var(--muted); white-space:nowrap; padding-right:12px; }
+.no-results{ display:none; text-align:center; padding:40px; }
+
+/* A resource category block */
+.res-card{ scroll-margin-top:140px; }
+.res-card .head{ display:flex; align-items:center; gap:14px; margin-bottom:12px; }
+.res-card .head h2{ margin:0; font-size:1.35rem; }
+.res-list{ list-style:none; padding:0; margin:0; }
+.res-list li + li{ border-top:1px solid var(--line); }
+.res-list a{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:13px 10px; margin:0 -10px; border-radius:10px;
+  color:var(--text); text-decoration:none; font-weight:600;
+  transition:background .2s, color .2s, padding .2s;
+}
+.res-list a::after{ content:"↗"; color:#b8bdd0; font-weight:700; transition:color .2s, transform .2s; }
+.res-list a:hover{ background:#f3f3ff; color:var(--indigo); padding-left:16px; }
+.res-list a:hover::after{ color:var(--indigo); transform:translate(2px,-2px); }
+
+/* Expandable tips (Transition page) */
+details.tips{ margin-top:14px; background:#f7f6ff; border:1px solid #e7e4ff; border-radius:var(--radius-sm); }
+details.tips summary{
+  cursor:pointer; list-style:none; padding:12px 16px;
+  font-weight:700; color:#4b3fd1; display:flex; justify-content:space-between; align-items:center;
+}
+details.tips summary::-webkit-details-marker{ display:none; }
+details.tips summary::after{ content:"+"; font-size:1.3rem; line-height:1; transition:transform .2s; }
+details.tips[open] summary::after{ transform:rotate(45deg); }
+details.tips ul{ margin:0; padding:0 16px 14px 36px; color:var(--muted); }
+details.tips li{ margin:6px 0; }
+
+/* Help lines (Get Help page) */
+.helpline{ display:flex; flex-direction:column; gap:6px; }
+.helpline .who{ font-weight:700; color:var(--ink); font-size:1.05rem; }
+.helpline .what{ color:var(--muted); font-size:.93rem; flex:1; }
+.helpline .num{
+  display:inline-flex; align-items:center; gap:8px; align-self:flex-start; margin-top:8px;
+  font-weight:800; font-size:1.05rem; text-decoration:none;
+  color:var(--indigo); background:#efefff; padding:8px 14px; border-radius:999px;
+  transition:background .2s, transform .2s;
+}
+.helpline .num:hover{ background:#e2e2ff; transform:translateY(-1px); }
+.emergency{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;
+  background:linear-gradient(110deg, #ff5f6d, #e0457b); color:#fff;
+  border-radius:var(--radius); padding:26px 30px; box-shadow:0 18px 40px rgba(224,69,123,.3);
+}
+.emergency h2{ color:#fff; margin:0 0 4px; }
+.emergency p{ margin:0; opacity:.92; }
+.emergency .btn{ background:#fff; color:#c22d57; font-size:1.15rem; }
+
+/* Small note */
+.note{ font-size:.88rem; color:var(--muted); }
+
+
+/* 7. FOOTER ---------------------------------------------------------- */
+.site-footer{ background:var(--ink); color:rgba(255,255,255,.6); padding:48px 0 36px; font-size:.92rem; }
+.footer-grid{ display:flex; flex-wrap:wrap; gap:24px 40px; justify-content:space-between; align-items:flex-start; }
+.site-footer .logo{ margin:0 0 10px; }
+.site-footer nav{ display:flex; flex-wrap:wrap; gap:6px 20px; }
+.site-footer a{ color:rgba(255,255,255,.8); text-decoration:none; }
+.site-footer a:hover{ color:#fff; }
+.footer-bottom{ border-top:1px solid rgba(255,255,255,.1); margin-top:30px; padding-top:20px; display:flex; flex-wrap:wrap; gap:8px 20px; justify-content:space-between; }
+
+
+/* 8. ANIMATIONS ------------------------------------------------------
+   Elements with class "reveal" fade up as you scroll to them
+   (js/site.js adds "in" when they come into view). */
+.reveal{ opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.in{ opacity:1; transform:none; }
+.no-js .reveal{ opacity:1; transform:none; }
+
+@keyframes float{ to{ transform:translate(60px, 40px) scale(1.12); } }
+@keyframes drop { from{ opacity:0; transform:translateY(-6px); } }
+
+/* Respect people who turn off motion in their phone/computer settings */
+@media (prefers-reduced-motion:reduce){
+  *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+  .reveal{ opacity:1; transform:none; }
+}
