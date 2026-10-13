@@ -1,0 +1,119 @@
+name,category,address,phone,website,notes,lat,lng
+Eva's Place,Shelters,"360 Lesmill Rd, Toronto, ON",,https://www.evas.ca/,"Youth shelter, ages 16-24",43.763328,-79.360914
+Eva's Satellite,Shelters; Harm Reduction,"25 Canterbury Pl, Toronto, ON",,https://www.evas.ca/,"Youth shelter with harm reduction approach, ages 16-24",43.772806,-79.414749
+Eva's Phoenix,Shelters; Housing Help,"60 Brant St, Toronto, ON",,https://www.evas.ca/,"Transitional housing and training, ages 16-24",43.647112,-79.398813
+YMCA Sprott House,Shelters; LGBTQ+ Services,"21 Walmer Rd, Toronto, ON",,https://www.ymcagta.org/,Transitional housing for 2SLGBTQ+ youth,43.667901,-79.405545
+Horizons for Youth,Shelters,"422 Gilbert Ave, Toronto, ON",,https://www.horizonsforyouth.org/,"Youth shelter, ages 16-24",43.689390,-79.462340
+Youth Without Shelter,Shelters,"6 Warrendale Ct, Toronto, ON",,https://yws.on.ca/,"Youth shelter, ages 16-24",43.736304,-79.580828
+Turning Point Youth Services,Shelters; Mental Health Services,"95 Wellesley St E, Toronto, ON",,https://turningpoint.ca/,Youth residential and counselling services,43.665823,-79.379205
+Touchstone Youth Centre,Shelters,"1076 Pape Ave, Toronto, ON",,https://www.touchstoneyouth.ca/,Youth shelter,43.690920,-79.349650
+The Stop Community Food Centre,Food Banks; Free Meals,"1884 Davenport Rd, Toronto, ON",,https://thestop.org/,Food bank and community meals,43.670862,-79.453822
+North York Harvest Food Bank,Food Banks,"116 Industry St, Toronto, ON",,https://northyorkharvest.com/,,43.693838,-79.493709
+Fort York Food Bank,Food Banks,"380 College St, Toronto, ON",,https://fyfb.com/,,43.657159,-79.405073
+Parkdale Community Food Bank,Food Banks,"1499 Queen St W, Toronto, ON",,https://www.parkdalefoodbank.org/,,43.639620,-79.440407
+The Scott Mission,Food Banks; Free Meals,"502 Spadina Ave, Toronto, ON",,https://www.scottmission.com/,Meals and food bank,43.658667,-79.400753
+Good Shepherd Ministries,Free Meals,"412 Queen St E, Toronto, ON",,https://www.goodshepherd.ca/,Free meals,43.656175,-79.362479
+St. Felix Centre,Drop-in Centres; Free Meals,"25 Augusta Ave, Toronto, ON",,https://stfelixcentre.org/,Drop-in and meals,43.648993,-79.399668
+St. Michael's Inner City Health,Health Clinics,"30 Bond St, Toronto, ON",,https://www.stmichaelshospital.com/programs/innercity/,,43.653641,-79.377807
+South Riverdale CHC,Health Clinics; Harm Reduction,"955 Queen St E, Toronto, ON",,https://www.srchc.ca/,"Community health centre, harm reduction services",43.661040,-79.339127
+Women's Health in Women's Hands CHC,Health Clinics; Women's Support,"2 Carlton St, Toronto, ON",,https://www.whiwh.com/,Suite 500,43.661550,-79.382908
+Access Alliance Multicultural Health,Health Clinics; Immigration & Newcomer Services,"340 College St, Toronto, ON",,https://accessalliance.ca/,Suite 500,43.657591,-79.403432
+Sherbourne Health – LGBTQ+ Programs,Health Clinics; LGBTQ+ Services,"333 Sherbourne St, Toronto, ON",,https://sherbourne.on.ca/,Includes Supporting Our Youth (SOY),43.662410,-79.372236
+Parkdale Queen West CHC,Health Clinics; Harm Reduction,"168 Bathurst St, Toronto, ON",,https://pqwchc.org/,Community health centre,43.646596,-79.404186
+Regent Park CHC,Health Clinics,"465 Dundas St E, Toronto, ON",,https://www.regentparkchc.org/,Community health centre,43.659349,-79.365574
+Hassle Free Clinic,Health Clinics; LGBTQ+ Services,"66 Gerrard St E, Toronto, ON",,https://hasslefreeclinic.org/,"Sexual health clinic, 2nd floor",43.659904,-79.378719
+Gerstein Crisis Centre,Mental Health Services,"100 Charles St E, Toronto, ON",416-929-5200,https://gersteincentre.org/,24/7 crisis line,43.670011,-79.381043
+CAMH,Mental Health Services,"1001 Queen St W, Toronto, ON",,https://www.camh.ca/,Centre for Addiction and Mental Health,43.643834,-79.418620
+"Skylark Children, Youth & Families",Mental Health Services,"65 Wellesley St E, Toronto, ON",,https://www.skylarkyouth.org/,"Youth counselling, Suite 300",43.665499,-79.381070
+The Works (Toronto Public Health),Harm Reduction,"277 Victoria St, Toronto, ON",,https://www.toronto.ca/community-people/health-wellness-care/health-programs-advice/the-works/,Harm reduction supplies and services,43.656532,-79.379324
+Street Health,Harm Reduction; Health Clinics,"338 Dundas St E, Toronto, ON",,https://www.streethealth.ca/,,43.658720,-79.369940
+PASAN,Harm Reduction,"526 Richmond St E, Toronto, ON",,https://www.pasan.org/,Prisoner HIV/AIDS support,43.654566,-79.364533
+Justice for Children and Youth,Legal Aid,"55 University Ave, Toronto, ON",,https://jfcy.org/,"Free legal help for youth under 25, 15th floor",43.646772,-79.383879
+Downtown Legal Services,Legal Aid,"655 Spadina Ave, Toronto, ON",,https://downtownlegalservices.ca/,Free legal clinic (U of T law students),43.664084,-79.402078
+Parkdale Community Legal Services,Legal Aid,"1266 Queen St W, Toronto, ON",,https://www.parkdalelegal.org/,,43.642396,-79.429588
+Neighbourhood Legal Services,Legal Aid,"333 Queen St E, Toronto, ON",,https://nlstoronto.org/,,43.655346,-79.365112
+ACCES Employment for Newcomers,Immigration & Newcomer Services; Employment Centres,"489 College St, Toronto, ON",,https://www.accesemployment.ca/,Suite 100,43.656013,-79.409135
+COSTI Immigrant Services,Immigration & Newcomer Services,"1710 Dufferin St, Toronto, ON",,https://www.costi.org/,,43.678839,-79.443662
+FCJ Refugee Centre,Immigration & Newcomer Services,"208 Oakwood Ave, Toronto, ON",,https://www.fcjrefugeecentre.org/,,43.681930,-79.436899
+ServiceOntario – College Park,ID & Documents,"777 Bay St, Toronto, ON",,https://www.ontario.ca/page/serviceontario,"Health cards, photo ID, birth certificates",43.660561,-79.384599
+JVS Toronto,Employment Centres,"74 Tycos Dr, Toronto, ON",,https://www.jvstoronto.org/,Employment services,43.705556,-79.456156
+Toronto Reference Library,Education,"789 Yonge St, Toronto, ON",,https://www.torontopubliclibrary.ca/,"Free computers, Wi-Fi, study space",43.671877,-79.386666
+George Brown College – St. James Campus,Education,"200 King St E, Toronto, ON",,https://www.georgebrown.ca/,,43.651419,-79.370291
+The 519 Community Centre,LGBTQ+ Services; Drop-in Centres,"519 Church St, Toronto, ON",,https://www.the519.org/,,43.666843,-79.381195
+Elizabeth Fry Society,Women's Support,"215 Wellesley St E, Toronto, ON",,https://www.elizabethfrytoronto.org/,,43.667140,-79.372980
+Sistering,Women's Support; Drop-in Centres,"962 Bloor St W, Toronto, ON",,https://sistering.org/,24/7 drop-in for women and trans people,43.661431,-79.428826
+Evangel Hall Mission,Drop-in Centres,"552 Adelaide St W, Toronto, ON",,https://www.evangelhall.ca/,,43.645561,-79.402479
+All Saints Church-Community Centre,Drop-in Centres,"315 Dundas St E, Toronto, ON",,https://allsaintstoronto.org/,,43.658242,-79.370819
+Evergreen Centre for Street Youth,Drop-in Centres; Youth Programs,"381 Yonge St, Toronto, ON",,https://www.ysm.ca/,Youth drop-in (Yonge Street Mission),43.658702,-79.381797
+SKETCH Working Arts,Youth Programs,"180 Shaw St, Toronto, ON",,https://sketch.ca/,Free arts programs for youth,43.646893,-79.417472
+Peel Youth Village,Shelters; Housing Help,"99 Acorn Pl, Mississauga, ON",,https://www.peelregion.ca/,Transitional housing for youth (Peel),43.605397,-79.644952
+The Mississauga Food Bank,Food Banks,"3121 Universal Dr, Mississauga, ON",,https://www.themississaugafoodbank.org/,Find a partner food bank near you,43.623902,-79.575136
+Mississauga Central Library,Education,"301 Burnhamthorpe Rd W, Mississauga, ON",,https://www.mississauga.ca/library/,"Free computers, Wi-Fi, study space",43.587562,-79.643509
+The Knights Table,Free Meals; Food Banks; Drop-in Centres,"23 Kings Cross Rd, Brampton, ON",,https://knightstable.org/,"Meals, food bank and drop-in",43.720933,-79.717283
+Moyo Health & Community Services,Health Clinics; Harm Reduction; LGBTQ+ Services,"7700 Hurontario St, Brampton, ON",,https://moyohcs.ca/,Suite 601,43.659359,-79.727116
+Brampton Library – Four Corners,Education,"65 Queen St E, Brampton, ON",,https://www.bramptonlibrary.ca/,,43.687565,-79.757656
+360°kids,Youth Programs; Shelters; Housing Help,"10909 Yonge St, Richmond Hill, ON",,https://360kids.ca/,Youth services and housing help (York Region),43.893578,-79.439558
+Krasman Centre,Mental Health Services; Drop-in Centres,"10121 Yonge St, Richmond Hill, ON",,https://krasmancentre.com/,Peer support and drop-in (York Region),43.874201,-79.437690
+Simcoe Hall Settlement House,Free Meals; Food Banks; Youth Programs,"578 Simcoe St S, Oshawa, ON",,https://simcoehall.com/,"Food, meals and community programs (Durham)",43.882393,-78.856873
+Pickering Central Library,Education,"1 The Esplanade, Pickering, ON",,https://www.picklib.ca/,,43.839016,-79.081772
+Kerr Street Mission,Free Meals; Food Banks; Youth Programs,"485 Kerr St, Oakville, ON",,https://kerrstreet.com/,"Food, meals and youth programs (Halton)",43.446373,-79.685932
+Burlington Food Bank,Food Banks,"1254 Plains Rd E, Burlington, ON",,https://burlingtonfoodbank.ca/,(Halton),43.332214,-79.821483
+LAMP Community Health Centre,Health Clinics; Mental Health Services; Harm Reduction,"185 Fifth St, Toronto, ON",,https://www.lampchc.org/,South Etobicoke community health centre,43.603560,-79.503430
+Daily Bread Food Bank – New Toronto,Food Banks,"191 New Toronto St, Toronto, ON",,https://www.dailybread.ca/,Use 'Find Food' on their website to find your closest food bank,43.606474,-79.504080
+Toronto Public Library – New Toronto,Education,"110 Eleventh St, Toronto, ON",,https://www.torontopubliclibrary.ca/,"Free computers, Wi-Fi, study space",43.599049,-79.509604
+Humber Polytechnic – Lakeshore Campus,Education,"3199 Lake Shore Blvd W, Toronto, ON",,https://humber.ca/,,43.597298,-79.520234
+Stonegate Community Health Centre,Health Clinics; Mental Health Services,"150 Berry Rd, Toronto, ON",,https://www.stonegatechc.org/,Etobicoke community health centre,43.637550,-79.488810
+Rexdale Community Health Centre,Health Clinics,"8 Taber Rd, Toronto, ON",,https://www.rexdalechc.com/,North Etobicoke community health centre,43.719361,-79.572096
+Toronto Housing Stability Services,Housing Help,,,https://www.toronto.ca/community-people/employment-social-support/housing-support/,,,
+Toronto Rent & Housing Support,Housing Help,,,https://www.toronto.ca/community-people/employment-social-support/housing-support/,,,
+Housing Help Centre (Scarborough),Housing Help,,,https://www.housinghelpcentre.org/,,,
+Housing Help Centres in Toronto,Housing Help,,,https://www.surveymonkey.com/r/housingconnect,,,
+YMCA Youth Housing Services,Housing Help,,,https://www.ymcagta.org/services/housing,,,
+Toronto Shelter Central Intake,Shelters,,416-338-4766,https://www.toronto.ca/community-people/housing-shelter/,24/7 - find an emergency shelter bed,,
+Toronto Shelter Listings,Shelters,,,https://www.shelterlistings.org/city/toronto-on.html,,,
+Ottawa Emergency Housing,Shelters,,,https://www.ottawa.ca/en/family-and-social-services/housing/find-emergency-housing,,,
+Daily Bread Food Bank – Find Food,Food Banks,,,https://www.dailybread.ca/need-food/,Find the food bank closest to you,,
+Second Harvest – Food Rescue,Food Banks,,,https://www.secondharvest.ca/need-food/,,,
+Food Banks Canada,Food Banks,,,https://www.foodbankscanada.ca/,,,
+211 Ontario – Food Programs,Food Banks,,211,https://www.211ontario.ca/,,,
+Toronto Meal Programs,Free Meals,,,https://www.toronto.ca/community-people/health-wellness-care/nutrition/community-meal-programs/,,,
+Toronto Community Meals,Free Meals,,,https://www.toronto.ca/community-people/health-wellness-care/health-programs-advice/nutrition-programs/community-meal-programs/,,,
+Legal Aid Ontario,Legal Aid,,,https://www.legalaid.on.ca/,,,
+CLEO – Legal Education for Ontario,Legal Aid,,,https://cleoconnect.ca/,,,
+JusticeNet – Sliding Scale Legal Help,Legal Aid,,,https://justice.net/,,,
+ARCH – Disability Law Centre,Legal Aid,,,https://www.archdisabilitylaw.ca/,,,
+LawFacts – Ontario Legal Info,Legal Aid,,,https://lawfacts.ca/,,,
+ConnexOntario – Mental Health & Addictions,Mental Health Services,,1-866-531-2600,https://www.connexontario.ca/,,,
+Kids Help Phone,Mental Health Services,,1-800-668-6868,https://kidshelpphone.ca/,Text CONNECT to 686868,,
+Therapy Toronto – Low-Cost Therapy,Mental Health Services,,,https://www.therapytoronto.ca/,,,
+YMCA Mental Health Programs,Mental Health Services,,,https://www.ymcagta.org/community-support/mental-health-services,,,
+Mental Health Commission of Canada,Mental Health Services,,,https://mentalhealthcommission.ca/,,,
+eMentalHealth Youth Services,Mental Health Services,,,https://www.ementalhealth.ca/Toronto/Mental-Health-Services-for-Youth/index.php?m=heading&ID=48,,,
+Apply for OHIP,Health Clinics; ID & Documents,,,https://www.ontario.ca/page/apply-ohip,,,
+METRAC Employment & Skills,Employment Centres,,,https://www.metrac.org/programs/employment-training/,,,
+Opportunities for Youth,Employment Centres,,,https://opportunitiesforyouth.ca/,,,
+Career Services Ontario,Employment Centres,,,https://careerserviceshrdc.com/,,,
+Next Step – Job & Life Skills,Employment Centres,,,https://next-steponline.ca/,,,
+YWCA Employment Services,Employment Centres,,,https://www.ywcatoronto.org/ourprograms/employmentandtraining,,,
+Youth Employment Services (YES),Employment Centres,,,https://www.yes.on.ca/,,,
+Canada Job Bank – Youth,Employment Centres,,,https://www.jobbank.gc.ca/youth,,,
+"Settlement.org – ID, OHIP, Immigration",Immigration & Newcomer Services,,,https://settlement.org/,,,
+IRCC – Immigration Canada,Immigration & Newcomer Services,,,https://www.cic.gc.ca/,,,
+OCASI – Ontario Council of Agencies Serving Immigrants,Immigration & Newcomer Services,,,https://ocasi.org/,,,
+Get ID & Birth Certificate,ID & Documents,,,https://www.legalline.ca/legal-answers/id-and-birth-certificate-ontario/,,,
+Ontario Photo ID,ID & Documents,,,https://www.ontario.ca/page/get-or-replace-ontario-photo-card,,,
+How to Get an OHIP Health Card,ID & Documents,,,https://settlement.org/ontario/daily-life/identification-ids/ontario-health-card/how-do-i-apply-for-a-health-card-ohip/,,,
+Apply for Ontario Works,Income & Benefits,,,https://www.ontario.ca/page/ontario-works,,,
+GST/HST Credit & Benefits,Income & Benefits,,,https://www.canada.ca/en/revenue-agency/services/child-family-benefits/gsthstc-apply.html,,,
+Assaulted Women's Helpline,Women's Support,,1-866-863-0511,https://www.awhl.org/,24/7,,
+YWCA Toronto,Women's Support,,,https://www.ywcatoronto.org/,,,
+Interval House,Women's Support,,,https://www.intervalhouse.ca/,Confidential location - call or visit website,,
+Nellie's Shelter,Women's Support,,,https://www.nellies.org/,Confidential location - call or visit website,,
+Rainbow Health Ontario,LGBTQ+ Services,,,https://rainbowhealthontario.ca/,,,
+Egale Canada,LGBTQ+ Services,,,https://www.egale.ca/,,,
+Queer Ontario Resources,LGBTQ+ Services,,,https://www.queerontario.org/resources/,,,
+YouthREX Program Database,Youth Programs,,,https://youthrex.hub.youthpolicy.org/,,,
+TDSB Youth Hubs,Youth Programs; Education,,,https://www.tdsb.on.ca/About-Us/Innovation/Youth-Hubs,,,
+Toronto Library Youth Programs,Youth Programs; Education,,,https://www.torontopubliclibrary.ca/programs/teens/,,,
+City of Toronto Youth Services,Youth Programs,,,https://www.toronto.ca/community-people/youth/,,,
+SUCCESS Youth Mentorship,Youth Programs,,,https://www.successbc.ca/eng/,,,
