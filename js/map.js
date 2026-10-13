@@ -130,7 +130,13 @@ function setStatus(text, isError) {
   el.classList.toggle('err', !!isError);
 }
 
-function pinIcon(cat, isTrusted) {
+function pinIcon(cat, isTrusted, small) {
+  if (small) {   // nearby places in "All categories" view: small dots, so busy areas stay readable
+    return L.divIcon({
+      className: '', html: `<span class="pin pin-dot" style="--c:${cat.color}"></span>`,
+      iconSize: [14, 14], iconAnchor: [7, 7], popupAnchor: [0, -8],
+    });
+  }
   return L.divIcon({
     className: '',
     html: `<span class="pin ${isTrusted ? 'pin-trusted' : 'pin-nearby'}" style="--c:${cat.color}">${cat.icon}</span>`,
@@ -363,7 +369,7 @@ async function findNearby(center, radius) {
       website: t.website || t['contact:website'] || '', notes: note, lat, lng, trusted: false,
     });
   });
-  setStatus(nearby.length ? `Found ${nearby.length} nearby places. Pick a category to see them.` : 'No extra places found nearby in OpenStreetMap. Trusted pins are still shown.');
+  setStatus(nearby.length ? `Found ${nearby.length} nearby places. Pick a category to filter them.` : 'No extra places found nearby in OpenStreetMap. Trusted pins are still shown.');
   render();
 }
 
@@ -390,16 +396,16 @@ function render() {
   // Pins
   trustedLayer.clearLayers(); nearbyLayer.clearLayers();
   const markers = new Map();
-  const add = (p, layer) => {
+  const add = (p, layer, small) => {
     const cat = activeCat || p.cats[0];
-    const m = L.marker([p.lat, p.lng], { icon: pinIcon(cat, p.trusted), zIndexOffset: p.trusted ? 500 : 0 })
+    const m = L.marker([p.lat, p.lng], { icon: pinIcon(cat, p.trusted, small), zIndexOffset: p.trusted ? 500 : 0 })
       .bindPopup(popupHtml(p), { maxWidth: 280 }).addTo(layer);
     markers.set(p, m);
   };
   trusted.filter(inCat).forEach(p => add(p, trustedLayer));
-  // Nearby places only appear once a category is picked (keeps the map readable)
-  const showNearby = $('#show-nearby').checked && activeCat;
-  if (showNearby) nearby.filter(inCat).forEach(p => add(p, nearbyLayer));
+  // Nearby places: small dots in "All categories", full icons once a category is picked
+  const showNearby = $('#show-nearby').checked;
+  if (showNearby) nearby.filter(inCat).forEach(p => add(p, nearbyLayer, !activeCat));
 
   // Category list with counts
   const counts = c => trusted.filter(p => p.cats.includes(c)).length + online.filter(p => p.cats.includes(c)).length
